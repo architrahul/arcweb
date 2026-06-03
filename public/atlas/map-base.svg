@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Arcweb atlas map base</title>
+  <desc id="desc">A restrained fantasy-inspired map background for the Arcweb homepage.</desc>
+  <defs>
+    <filter id="paper">
+      <feTurbulence baseFrequency="0.015" numOctaves="4" seed="12" type="fractalNoise"/>
+      <feColorMatrix type="saturate" values="0.25"/>
+      <feBlend in="SourceGraphic" mode="multiply"/>
+    </filter>
+    <linearGradient id="sea" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#d7e1c4"/>
+      <stop offset="1" stop-color="#a7c0b0"/>
+    </linearGradient>
+    <linearGradient id="land" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#ead8a7"/>
+      <stop offset="1" stop-color="#d2b879"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="#efe0b4"/>
+  <g filter="url(#paper)">
+    <path d="M0 0h1600v900H0z" fill="#ead9aa"/>
+    <path d="M0 650c170-45 255-17 356-72 100-55 146-150 254-144 126 8 154 153 292 170 162 20 247-160 404-128 110 23 138 122 294 96v328H0z" fill="url(#sea)" opacity=".76"/>
+    <path d="M146 185c100-91 258-116 379-61 96 44 109 129 205 156 152 43 244-130 426-69 128 43 225 166 219 300-7 154-151 258-295 272-112 11-175-35-268-20-112 18-139 95-264 103-138 9-279-70-352-181-89-137-70-326 50-445z" fill="url(#land)" stroke="#7f704b" stroke-width="5" opacity=".92"/>
+    <path d="M238 258c72-54 156-77 244-57 93 21 127 91 211 107 118 22 202-65 324-31 85 24 158 104 160 193 3 117-116 202-233 206-85 3-137-34-211-19-83 16-109 73-198 71-103-2-201-72-248-156-58-104-45-228 65-322" fill="none" stroke="#8e7c52" stroke-width="3" opacity=".36"/>
+    <path d="M320 532c95-46 180-45 253 8 65 47 110 54 184 18 70-34 140-24 212 30" fill="none" stroke="#746947" stroke-width="8" stroke-linecap="round" opacity=".28"/>
+    <path d="M322 532c95-46 180-45 253 8 65 47 110 54 184 18 70-34 140-24 212 30" fill="none" stroke="#fff1c4" stroke-width="3" stroke-linecap="round" opacity=".38"/>
+    <path d="M550 262c41 46 91 77 149 90 66 15 127 1 184-31" fill="none" stroke="#6b8b79" stroke-width="9" stroke-linecap="round" opacity=".42"/>
+    <path d="M555 262c39 44 88 72 146 85 64 14 123 1 178-30" fill="none" stroke="#cfe0d1" stroke-width="4" stroke-linecap="round" opacity=".55"/>
+    <g fill="none" stroke="#6f6143" stroke-linecap="round" opacity=".55">
+      <path d="M1145 260l28-52 31 55"/>
+      <path d="M1190 274l35-64 38 66"/>
+      <path d="M1240 292l24-42 27 44"/>
+      <path d="M430 208l20-34 22 36"/>
+      <path d="M467 221l27-48 29 50"/>
+      <path d="M505 236l18-30 20 32"/>
+    </g>
+    <g fill="#8a7448" opacity=".45">
+      <circle cx="300" cy="320" r="4"/>
+      <circle cx="365" cy="292" r="3"/>
+      <circle cx="820" cy="278" r="4"/>
+      <circle cx="1020" cy="430" r="4"/>
+      <circle cx="655" cy="660" r="3"/>
+      <circle cx="1230" cy="552" r="3"/>
+    </g>
+    <path d="M88 104h275M88 124h205M1300 758h196M1360 786h136" stroke="#7d704f" stroke-width="3" opacity=".28"/>
+  </g>
+</svg>
