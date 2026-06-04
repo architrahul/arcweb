@@ -1,10 +1,10 @@
 import { Card } from "@/components/ui/Card";
 
 const links = [
-  { label: "Email", value: "Add email address" },
-  { label: "GitHub", value: "Add GitHub profile" },
-  { label: "LinkedIn", value: "Add LinkedIn profile" },
-  { label: "Google Scholar", value: "Add Scholar profile" },
+  { label: "Email", value: "architpatil@utexas.edu", href: "mailto:architpatil@utexas.edu" },
+  { label: "Phone", value: "+1 469 325 8093", href: "tel:+14693258093" },
+  { label: "GitHub", value: "github.com/architrahul", href: "https://github.com/architrahul" },
+  { label: "LinkedIn", value: "linkedin.com/in/architrpatil", href: "https://www.linkedin.com/in/architrpatil/" },
 ];
 
 export default function ContactPage() {
@@ -21,7 +21,14 @@ export default function ContactPage() {
             <p className="text-xs font-semibold uppercase text-[var(--accent-strong)]">
               {link.label}
             </p>
-            <p className="mt-2 text-[var(--ink-muted)]">{link.value}</p>
+            <a
+              className="mt-2 block break-words text-[var(--ink-muted)] transition hover:text-[var(--foreground)]"
+              href={link.href}
+              rel="noreferrer"
+              target={link.href.startsWith("http") ? "_blank" : undefined}
+            >
+              {link.value}
+            </a>
           </Card>
         ))}
       </div>
