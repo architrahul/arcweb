@@ -31,7 +31,7 @@ export function TopNav() {
           />
           Archit Patil
         </Link>
-        <div className="flex flex-wrap items-center justify-end gap-x-5 gap-y-3 text-sm text-[var(--ink-muted)]">
+        <div className="flex flex-wrap items-center justify-end gap-x-5 gap-y-2 text-sm text-[var(--ink-muted)]">
           <div className="flex flex-wrap items-center justify-end gap-x-5 gap-y-2">
             {navItems.map((item) => (
               <Link

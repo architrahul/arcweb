@@ -67,6 +67,24 @@ The visual style should draw from:
 - parchment maps
 - technical sketches
 
+### Atlas Rendering Rules
+
+The homepage atlas should be built as SVG inside the app, not as a flat
+background image. The map should be primarily line art: coastlines, paths,
+rivers, mountains, ornament, and landmarks should come from strokes and simple
+filled accents rather than detailed painted illustration.
+
+Theme treatment:
+
+- Light mode should resemble an elegant medieval or fantasy parchment map with
+  warm parchment tones and ochre/brown linework.
+- Dark mode should use white or off-white linework on a deep dark-blue
+  background.
+- The SVG should use theme-aware CSS variables so the same map structure works
+  in light, dark, and system modes.
+- Project names must remain literal and readable. The fantasy aesthetic is in
+  the cartography, not in renamed regions.
+
 ### Avoid
 
 The site should not resemble:
@@ -100,7 +118,8 @@ not:
 
 The homepage should open directly onto the interactive atlas.
 
-The map should fill most of the viewport. A quiet top navigation bar should sit above it or overlay it subtly.
+The map should fill the full first viewport below the top navigation. A quiet
+top navigation bar should sit above it or overlay it subtly.
 
 Recommended top navigation:
 
@@ -109,6 +128,10 @@ Archit Patil        Research    Projects    Writing    CV    Contact
 ```
 
 The navigation exists as a fallback. The map remains the primary interface.
+
+The first viewport should be map-first. Explanatory text such as `Arcweb` and
+site description copy should appear below the fold or in a separate About
+section, not compete with the atlas in the first screen.
 
 ### Project Marker Interaction
 
@@ -119,10 +142,15 @@ Each visible project marker should support:
    - one-sentence description
    - status
    - tags
+   - the full visible project description should live in the hover/focus card,
+     not as always-visible text on the map
 
 2. **Click action**
    - opens the project detail page
    - optionally uses a smooth zoom-like transition
+
+Markers must be keyboard accessible links or buttons. Hover cards must appear
+on keyboard focus as well as pointer hover.
 
 Example hover card:
 
@@ -307,6 +335,8 @@ Instead:
 - paths indicate conceptual relationships
 - terrain creates visual separation
 - landmarks indicate importance or status
+- markers stay compact; use hover/focus cards instead of large visible project cards
+- a quiet `View all projects` fallback link stays available for direct navigation
 
 The map does not need to be fully explainable. It only needs to make exploration intuitive.
 
@@ -391,7 +421,7 @@ Recommended stack:
 
 Optional additions:
 
-- SVG map layer
+- inline SVG map layer
 - React SVG pan/zoom library
 - Content collections or custom project metadata
 - lightweight command palette later

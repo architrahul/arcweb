@@ -1,15 +1,35 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { cx } from "@/lib/utils";
+import { useEffect, useSyncExternalStore } from "react";
 
 type ThemeMode = "system" | "light" | "dark";
 
-const modes: Array<{ label: string; value: ThemeMode }> = [
-  { label: "System", value: "system" },
-  { label: "Light", value: "light" },
-  { label: "Dark", value: "dark" },
-];
+const modes: ThemeMode[] = ["system", "light", "dark"];
+
+const labels: Record<ThemeMode, string> = {
+  system: "System",
+  light: "Light",
+  dark: "Dark",
+};
+
+function getStoredMode(): ThemeMode {
+  const stored = window.localStorage.getItem("arcweb-theme");
+  return stored === "light" || stored === "dark" || stored === "system"
+    ? stored
+    : "system";
+}
+
+function subscribeThemeMode(callback: () => void) {
+  const sync = () => callback();
+
+  window.addEventListener("storage", sync);
+  window.addEventListener("arcweb-theme-change", sync);
+
+  return () => {
+    window.removeEventListener("storage", sync);
+    window.removeEventListener("arcweb-theme-change", sync);
+  };
+}
 
 function resolveTheme(mode: ThemeMode) {
   if (mode !== "system") {
@@ -29,57 +49,40 @@ function applyTheme(mode: ThemeMode) {
 }
 
 export function ThemeToggle() {
-  const [mode, setMode] = useState<ThemeMode>(() => {
-    if (typeof window === "undefined") {
-      return "system";
-    }
-
-    const stored = window.localStorage.getItem("arcweb-theme");
-    return stored === "light" || stored === "dark" || stored === "system"
-      ? stored
-      : "system";
-  });
+  const mode = useSyncExternalStore(
+    subscribeThemeMode,
+    getStoredMode,
+    (): ThemeMode => "system",
+  );
 
   useEffect(() => {
-    applyTheme(mode);
-
     const media = window.matchMedia("(prefers-color-scheme: dark)");
     const syncSystemTheme = () => {
-      if (mode === "system") {
+      if (getStoredMode() === "system") {
         applyTheme("system");
       }
     };
 
     media.addEventListener("change", syncSystemTheme);
     return () => media.removeEventListener("change", syncSystemTheme);
-  }, [mode]);
+  }, []);
 
-  function chooseMode(nextMode: ThemeMode) {
+  function cycleMode() {
+    const nextMode = modes[(modes.indexOf(mode) + 1) % modes.length];
     window.localStorage.setItem("arcweb-theme", nextMode);
-    setMode(nextMode);
     applyTheme(nextMode);
+    window.dispatchEvent(new Event("arcweb-theme-change"));
   }
 
   return (
-    <div
-      aria-label="Theme mode"
-      className="flex rounded border border-[var(--line)] bg-[var(--control-bg)] p-0.5 text-xs"
-      role="group"
+    <button
+      aria-label={`Theme mode: ${labels[mode]}. Activate to switch theme mode.`}
+      className="inline-flex w-20 shrink-0 items-center justify-center border-b border-transparent pb-1 text-sm leading-normal text-[var(--ink-muted)] transition duration-300 ease-out hover:border-current hover:text-[var(--foreground)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent-strong)]"
+      onClick={cycleMode}
+      title={`Theme: ${labels[mode]}`}
+      type="button"
     >
-      {modes.map((item) => (
-        <button
-          aria-pressed={mode === item.value}
-          className={cx(
-            "rounded-sm px-2.5 py-1.5 text-[var(--ink-muted)] transition duration-300 ease-out hover:text-[var(--foreground)]",
-            mode === item.value && "bg-[var(--control-active)] text-[var(--foreground)] shadow-sm",
-          )}
-          key={item.value}
-          onClick={() => chooseMode(item.value)}
-          type="button"
-        >
-          {item.label}
-        </button>
-      ))}
-    </div>
+      {labels[mode]}
+    </button>
   );
 }

@@ -2,7 +2,7 @@ import type { Project } from "@/content/projects";
 
 export function ProjectHoverCard({ project }: { project: Project }) {
   return (
-    <div className="pointer-events-none absolute left-1/2 top-full z-20 mt-3 w-72 -translate-x-1/2 rounded border border-[var(--line)] bg-[rgba(255,252,242,0.96)] p-4 text-left opacity-0 shadow-xl transition group-hover:opacity-100">
+    <div className="pointer-events-none absolute left-1/2 top-full z-20 mt-3 w-72 -translate-x-1/2 rounded border border-[var(--line)] bg-[var(--hover-card-bg)] p-4 text-left opacity-0 shadow-xl transition duration-200 ease-out group-hover:opacity-100 group-focus:opacity-100 group-focus-visible:opacity-100">
       <h3 className="text-sm font-semibold text-[var(--foreground)]">
         {project.title}
       </h3>
@@ -15,7 +15,7 @@ export function ProjectHoverCard({ project }: { project: Project }) {
       <div className="mt-2 flex flex-wrap gap-1.5">
         {project.tags.map((tag) => (
           <span
-            className="rounded-sm border border-[var(--line)] bg-white/60 px-2 py-1 text-[11px] text-[var(--ink-muted)]"
+            className="rounded-sm border border-[var(--line)] bg-[var(--tag-bg)] px-2 py-1 text-[11px] text-[var(--ink-muted)]"
             key={tag}
           >
             {tag}

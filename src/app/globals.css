@@ -11,10 +11,16 @@
   --nav-bg: rgba(247, 243, 232, 0.82);
   --control-bg: rgba(255, 252, 242, 0.62);
   --control-active: rgba(255, 255, 255, 0.78);
-  --map-surface: #e7d6a6;
+  --map-surface: #ead8a7;
+  --map-line: #7b5a2a;
+  --map-line-soft: rgba(123, 90, 42, 0.52);
   --map-tab-bg: rgba(255, 252, 242, 0.76);
   --home-top-fade: rgba(247, 243, 232, 0.74);
-  --home-vignette: rgba(32, 33, 24, 0.24);
+  --home-vignette: rgba(88, 59, 22, 0.22);
+  --hover-card-bg: rgba(255, 252, 242, 0.96);
+  --tag-bg: rgba(255, 255, 255, 0.6);
+  --marker-bg: #fff8dd;
+  --marker-border: rgba(51, 47, 34, 0.3);
 }
 
 :root[data-theme="dark"] {
@@ -28,10 +34,16 @@
   --nav-bg: rgba(21, 24, 20, 0.84);
   --control-bg: rgba(12, 14, 12, 0.42);
   --control-active: rgba(243, 236, 219, 0.13);
-  --map-surface: #2d332a;
+  --map-surface: #071323;
+  --map-line: #f3ecdb;
+  --map-line-soft: rgba(243, 236, 219, 0.5);
   --map-tab-bg: rgba(31, 34, 28, 0.78);
   --home-top-fade: rgba(21, 24, 20, 0.76);
-  --home-vignette: rgba(0, 0, 0, 0.42);
+  --home-vignette: rgba(0, 0, 0, 0.5);
+  --hover-card-bg: rgba(31, 34, 28, 0.96);
+  --tag-bg: rgba(243, 236, 219, 0.08);
+  --marker-bg: #f3ecdb;
+  --marker-border: rgba(243, 236, 219, 0.38);
 }
 
 * {
