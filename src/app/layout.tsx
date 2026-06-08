@@ -6,9 +6,9 @@ export const metadata: Metadata = {
   title: "Arcweb",
   description: "A research portfolio organized as an interactive atlas.",
   icons: {
-    icon: "/logo-circle.svg",
-    shortcut: "/logo-circle.svg",
-    apple: "/logo.png",
+    icon: "/logo-circle.png",
+    shortcut: "/logo-circle.png",
+    apple: "/logo-circle.png",
   },
 };
 

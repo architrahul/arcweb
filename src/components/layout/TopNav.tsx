@@ -26,7 +26,7 @@ export function TopNav() {
             alt="Arcweb AP logo"
             className="rounded-full border border-[var(--line)]"
             height={34}
-            src="/logo-circle.svg"
+            src="/logo-circle.png"
             width={34}
           />
           Archit Patil
