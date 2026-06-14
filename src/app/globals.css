@@ -8,12 +8,12 @@
   --line: rgba(51, 47, 34, 0.16);
   --accent: #2f6f63;
   --accent-strong: #9b3f32;
-  --nav-bg: rgba(247, 243, 232, 0.82);
+  --nav-bg: rgba(234, 216, 167, 0.92);
   --control-bg: rgba(255, 252, 242, 0.62);
   --control-active: rgba(255, 255, 255, 0.78);
   --map-surface: #ead8a7;
-  --map-line: #7b5a2a;
-  --map-line-soft: rgba(123, 90, 42, 0.52);
+  --map-line: rgba(111, 79, 34, 0.56);
+  --map-line-soft: rgba(111, 79, 34, 0.32);
   --map-tab-bg: rgba(255, 252, 242, 0.76);
   --home-top-fade: rgba(247, 243, 232, 0.74);
   --home-vignette: rgba(88, 59, 22, 0.22);
@@ -21,6 +21,7 @@
   --tag-bg: rgba(255, 255, 255, 0.6);
   --marker-bg: #fff8dd;
   --marker-border: rgba(51, 47, 34, 0.3);
+  --pin-line: #5f421c;
 }
 
 :root[data-theme="dark"] {
@@ -31,12 +32,12 @@
   --line: rgba(243, 236, 219, 0.17);
   --accent: #7eb8a8;
   --accent-strong: #d58b75;
-  --nav-bg: rgba(21, 24, 20, 0.84);
+  --nav-bg: rgba(7, 19, 35, 0.92);
   --control-bg: rgba(12, 14, 12, 0.42);
   --control-active: rgba(243, 236, 219, 0.13);
   --map-surface: #071323;
-  --map-line: #f3ecdb;
-  --map-line-soft: rgba(243, 236, 219, 0.5);
+  --map-line: rgba(243, 236, 219, 0.58);
+  --map-line-soft: rgba(243, 236, 219, 0.3);
   --map-tab-bg: rgba(31, 34, 28, 0.78);
   --home-top-fade: rgba(21, 24, 20, 0.76);
   --home-vignette: rgba(0, 0, 0, 0.5);
@@ -44,6 +45,7 @@
   --tag-bg: rgba(243, 236, 219, 0.08);
   --marker-bg: #f3ecdb;
   --marker-border: rgba(243, 236, 219, 0.38);
+  --pin-line: #f3ecdb;
 }
 
 * {

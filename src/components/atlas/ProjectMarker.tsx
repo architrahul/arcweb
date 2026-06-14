@@ -1,17 +1,19 @@
 import Link from "next/link";
 import type { Project } from "@/content/projects";
+import { PinIcon } from "@/components/atlas/PinIcon";
 import { ProjectHoverCard } from "@/components/atlas/ProjectHoverCard";
 
 export function ProjectMarker({ project }: { project: Project }) {
   return (
     <Link
       aria-label={project.title}
-      className="group absolute z-10 block size-5 -translate-x-1/2 -translate-y-1/2 rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent-strong)]"
+      className="group pointer-events-auto absolute z-10 block size-11 -translate-x-1/2 -translate-y-1/2 rounded-full transition sm:size-12 lg:size-14 hover:z-40 focus:z-40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent-strong)]"
       href={`/projects/${project.slug}`}
       style={{ left: `${project.position.x}%`, top: `${project.position.y}%` }}
     >
-      <span className="absolute inset-0 rounded-full border border-[var(--marker-border)] bg-[var(--marker-bg)] shadow-md transition group-hover:scale-125 group-focus:scale-125 group-hover:border-[var(--accent-strong)] group-focus:border-[var(--accent-strong)]" />
-      <span className="absolute left-1/2 top-1/2 size-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--accent-strong)]" />
+      <span className="absolute inset-0 transition duration-200 ease-out group-hover:scale-110 group-focus:scale-110">
+        <PinIcon />
+      </span>
       <ProjectHoverCard project={project} />
     </Link>
   );

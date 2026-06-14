@@ -8,20 +8,22 @@ export function AtlasMap() {
     <>
       <section
         aria-label="Interactive project atlas"
-        className="relative min-h-[calc(100vh-65px)] overflow-hidden bg-[var(--map-surface)]"
+        className="relative isolate min-h-[calc(100vh-65px)] overflow-hidden bg-[var(--map-surface)]"
       >
         <h1 className="sr-only">Arcweb project atlas</h1>
         <AtlasArtwork />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_38%,rgba(255,252,242,0.06)_0%,rgba(247,243,232,0.14)_42%,var(--home-vignette)_100%)]" />
-        <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[var(--home-top-fade)] to-transparent" />
+        <div className="fixed inset-0 bg-[radial-gradient(circle_at_50%_38%,rgba(255,252,242,0.04)_0%,rgba(247,243,232,0.1)_42%,var(--home-vignette)_100%)]" />
+        <div className="fixed inset-x-0 top-0 h-28 bg-gradient-to-b from-[var(--home-top-fade)] to-transparent" />
 
-        {projects.map((project) => (
-          <ProjectMarker key={project.slug} project={project} />
-        ))}
+        <div className="fixed inset-0 z-10 pointer-events-none">
+          {projects.map((project) => (
+            <ProjectMarker key={project.slug} project={project} />
+          ))}
+        </div>
         <MapControls />
       </section>
 
-      <section className="border-t border-[var(--line)] bg-[var(--background)] px-5 py-16">
+      <section className="relative z-30 border-t border-[var(--line)] bg-[var(--background)] px-5 py-16">
         <div className="mx-auto max-w-4xl">
           <p className="text-xs font-semibold uppercase text-[var(--accent-strong)]">
             About

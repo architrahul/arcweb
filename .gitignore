@@ -11,6 +11,9 @@
 # misc
 .DS_Store
 .Rhistory
+/wallpaper_svg.svg
+/pin.svg
+/boat.svg
 *.pem
 
 # debug

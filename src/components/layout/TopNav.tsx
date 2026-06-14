@@ -19,7 +19,7 @@ export function TopNav() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-40 border-b border-[var(--line)] bg-[var(--nav-bg)] backdrop-blur-md">
+    <header className="sticky top-0 z-40 bg-[var(--nav-bg)] backdrop-blur-md">
       <nav className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-4">
         <Link className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.18em]" href="/">
           <Image
@@ -51,6 +51,10 @@ export function TopNav() {
           <ThemeToggle />
         </div>
       </nav>
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-full h-8 bg-gradient-to-b from-[var(--nav-bg)] to-transparent"
+      />
     </header>
   );
 }
