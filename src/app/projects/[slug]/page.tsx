@@ -189,14 +189,14 @@ function PphCupPage() {
           </div>
 
           <div className="relative">
-            <div className="overflow-hidden rounded border border-[#d7e4df] bg-white shadow-2xl shadow-[#0e3f38]/10 dark:border-white/10 dark:bg-[#17211f]">
+            <div className="flex h-[360px] max-h-[58vh] items-center justify-center md:h-[430px] lg:h-[500px] lg:justify-end">
               <Image
                 alt="Clean render of the PPH Cup device geometry"
-                className="h-auto w-full"
-                height={920}
+                className="h-full w-auto object-contain drop-shadow-2xl"
+                height={1906}
                 priority
-                src="/pph-cup/device-render.png"
-                width={1680}
+                src="/pph-cup/device-render-reference-smooth.png"
+                width={825}
               />
             </div>
           </div>
@@ -249,9 +249,9 @@ function PphCupPage() {
             <Image
               alt="Clinical measurement system concept for the PPH Cup"
               className="h-full min-h-[360px] w-full object-cover"
-              height={920}
-              src="/pph-cup/measurement-system-realistic-corrected.png"
-              width={1680}
+              height={929}
+              src="/pph-cup/measurement-system-bottom-connected.png"
+              width={1692}
             />
           </div>
           <div className="self-center">

@@ -75,8 +75,3 @@ The thesis archive summarizes an 18-month observational study at Government Medi
 - ACOG Practice Bulletin No. 183: Postpartum Hemorrhage.
 - RCOG Green-top Guideline No. 52: Prevention and Management of Postpartum Haemorrhage.
 - India SRS maternal mortality reporting, latest cited figure 2021-2023.
-- Local archive: `pph_cup_material/Paper Publish Material_10 June 2026/202021004968-Complete Specification (1).pdf`
-- Local archive: `pph_cup_material/Paper Publish Material_10 June 2026/user guidelines.pdf`
-- Local archive: `pph_cup_material/Paper Publish Material_10 June 2026/Registration as a Startup - submitted approval.pdf`
-- Local archive: `pph_cup_material/Paper Publish Material_10 June 2026/Dr. Naaz . BUSHRA NAAZ THESISI FINAL AC Akola 2024.docx`
-- Local archive: `pph_cup_material/Archit_Pravega Innovation Summit (2021).pdf`
