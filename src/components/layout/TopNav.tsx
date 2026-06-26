@@ -10,6 +10,7 @@ const navItems = [
   { href: "/profile", label: "Profile" },
   { href: "/research", label: "Research" },
   { href: "/projects", label: "Projects" },
+  { href: "/projects/pph-cup", label: "PPH Cup" },
   { href: "/writing", label: "Writing" },
   { href: "/cv", label: "CV" },
   { href: "/contact", label: "Contact" },
@@ -36,7 +37,7 @@ export function TopNav() {
             {navItems.map((item) => (
               <Link
                 className={cx(
-                  "border-b pb-1 transition duration-300 ease-out hover:border-current hover:text-[var(--foreground)]",
+                  "whitespace-nowrap border-b pb-1 transition duration-300 ease-out hover:border-current hover:text-[var(--foreground)]",
                   pathname === item.href || pathname.startsWith(`${item.href}/`)
                     ? "border-[var(--accent-strong)] text-[var(--foreground)]"
                     : "border-transparent",

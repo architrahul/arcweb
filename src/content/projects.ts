@@ -13,6 +13,7 @@ export type Project = {
   motivation: string;
   approach: string;
   results: string;
+  artifacts?: string[];
   timeline: string[];
   related: string[];
 };
@@ -115,6 +116,38 @@ export const projects: Project[] = [
     related: ["coroutine-implementations", "verilog-pipelining"],
   },
   {
+    slug: "pph-cup",
+    title: "PPH Cup",
+    description:
+      "A low-cost silicone medical device for quantitative postpartum hemorrhage monitoring.",
+    status: "Active",
+    tags: ["Medical Device", "Maternal Health", "Obstetrics"],
+    position: { x: 46, y: 78 },
+    summary:
+      "A low-cost silicone medical device designed to capture and quantify postpartum blood loss in real time for clearer hemorrhage detection and clinical decision-making.",
+    problem:
+      "Postpartum hemorrhage care depends on timely escalation, but visual estimation is frequently inaccurate and can delay response during the golden hour.",
+    motivation:
+      "A focused collection device can give obstetric teams measured volume data while blood loss is still clinically actionable.",
+    approach:
+      "The device uses a shallow silicone cup inlet, long transfer stem, and bifurcated distal outlet to route blood loss toward a calibrated collection bag while preserving a second path for patency or suction-assisted workflow.",
+    results:
+      "Used across 49+ hospitals in India, with a 300-patient clinical-study record and an associated 95% reduction in PPH-related maternal mortality in the study setting.",
+    artifacts: [
+      "Clean device render",
+      "Graduated collection-bag illustration",
+      "Device facts brief",
+      "Clinical-study summary",
+    ],
+    timeline: [
+      "Concept and prototype archive",
+      "Safety and ethics materials",
+      "Clinical-study documentation",
+      "Obstetric workflow feedback",
+    ],
+    related: ["medical-device-startup"],
+  },
+  {
     slug: "medical-device-startup",
     title: "Medical Device Startup",
     description: "A product and engineering effort around healthcare technology.",
@@ -131,7 +164,7 @@ export const projects: Project[] = [
       "Combine prototyping, user discovery, technical validation, and product scoping.",
     results: "The first public version will stay high-level until details are ready to share.",
     timeline: ["Discovery", "Prototype", "Validation"],
-    related: ["privacy-preserving-genomics"],
+    related: ["pph-cup", "privacy-preserving-genomics"],
   },
   {
     slug: "coroutine-implementations",

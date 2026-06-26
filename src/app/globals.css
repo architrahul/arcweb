@@ -103,3 +103,61 @@ select {
     transform: translateY(0);
   }
 }
+
+.pph-device-page {
+  background: #f7fbfa !important;
+  color: #142320 !important;
+}
+
+.pph-device-page .pph-hero {
+  background: linear-gradient(135deg, #fbfffd 0%, #eef8f5 54%, #f8f0f2 100%) !important;
+  border-color: #d5e5df !important;
+}
+
+.pph-device-page .pph-white {
+  background: #ffffff !important;
+  border-color: #d5e5df !important;
+}
+
+.pph-device-page .pph-soft {
+  background: #f7fbfa !important;
+}
+
+.pph-device-page .pph-card {
+  background: #f6fbf9 !important;
+  border-color: #dce9e5 !important;
+}
+
+.pph-device-page .pph-research-position {
+  background: rgba(255, 255, 255, 0.72) !important;
+  color: #425b55 !important;
+}
+
+.pph-device-page h1,
+.pph-device-page h2,
+.pph-device-page h3 {
+  color: #132d29 !important;
+}
+
+.pph-device-page p,
+.pph-device-page li,
+.pph-device-page figcaption {
+  color: #526861;
+}
+
+.pph-device-page .pph-deep {
+  background: #172b28 !important;
+  color: #ffffff !important;
+}
+
+.pph-device-page .pph-deep h1,
+.pph-device-page .pph-deep h2,
+.pph-device-page .pph-deep h3 {
+  color: #ffffff !important;
+}
+
+.pph-device-page .pph-deep p,
+.pph-device-page .pph-deep li,
+.pph-device-page .pph-deep figcaption {
+  color: #d8e8e4 !important;
+}
