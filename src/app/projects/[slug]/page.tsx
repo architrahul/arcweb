@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
 import { projects } from "@/content/projects";
 import { getProjectBySlug, getRelatedProjects } from "@/lib/projects";
@@ -25,6 +26,14 @@ export default async function ProjectPage({
 
   if (project.slug === "pph-cup") {
     return <PphCupPage />;
+  }
+
+  if (project.slug === "automating-pcr-xarm") {
+    return <PcrAutomationPage />;
+  }
+
+  if (project.slug === "game-boy-emulator") {
+    return <GameBoyEmulatorPage />;
   }
 
   const relatedProjects = getRelatedProjects(project.related);
@@ -60,7 +69,20 @@ export default async function ProjectPage({
           {project.artifacts ? (
             <ul className="mt-3 space-y-2 text-sm text-[var(--ink-muted)]">
               {project.artifacts.map((item) => (
-                <li key={item}>{item}</li>
+                <li key={typeof item === "string" ? item : item.href}>
+                  {typeof item === "string" ? (
+                    item
+                  ) : (
+                    <a
+                      className="transition hover:text-[var(--foreground)]"
+                      href={item.href}
+                      rel="noreferrer"
+                      target={item.href.startsWith("http") ? "_blank" : undefined}
+                    >
+                      {item.label}
+                    </a>
+                  )}
+                </li>
               ))}
             </ul>
           ) : (
@@ -107,6 +129,478 @@ function ProjectSection({ title, body }: { title: string; body: string }) {
       <h2 className="text-lg font-semibold">{title}</h2>
       <p className="mt-3 text-sm leading-6 text-[var(--ink-muted)]">{body}</p>
     </Card>
+  );
+}
+
+const pcrAuthors = [
+  ["Sharma, Angelica", "https://repositories.lib.utexas.edu/browse/author?startsWith=Sharma,%20Angelica"],
+  ["Kantharaju, Vishal", "https://repositories.lib.utexas.edu/browse/author?startsWith=Kantharaju,%20Vishal"],
+  ["Lay-Sok, Thida", "https://repositories.lib.utexas.edu/browse/author?startsWith=Lay-Sok,%20Thida"],
+  ["Chase, Nathan", "https://repositories.lib.utexas.edu/browse/author?startsWith=Chase,%20Nathan"],
+  ["Seenivasan, Harish", "https://repositories.lib.utexas.edu/browse/author?startsWith=Seenivasan,%20Harish"],
+  ["Nguyen, Andrew", "https://repositories.lib.utexas.edu/browse/author?startsWith=Nguyen,%20Andrew"],
+  ["Gautam, Kritika", "https://repositories.lib.utexas.edu/browse/author?startsWith=Gautam,%20Kritika"],
+  ["Kumari, Harshita", "https://repositories.lib.utexas.edu/browse/author?startsWith=Kumari,%20Harshita"],
+  ["Shenoy, Esha", "https://repositories.lib.utexas.edu/browse/author?startsWith=Shenoy,%20Esha"],
+  ["Shah, Aarya", "https://repositories.lib.utexas.edu/browse/author?startsWith=Shah,%20Aarya"],
+  ["Patil, Archit", "https://repositories.lib.utexas.edu/browse/author?startsWith=Patil,%20Archit"],
+];
+
+function RepositoryLink({
+  children,
+  href,
+}: {
+  children: ReactNode;
+  href: string;
+}) {
+  return (
+    <a
+      className="text-[var(--accent-strong)] underline-offset-4 transition hover:underline"
+      href={href}
+      rel="noreferrer"
+      target="_blank"
+    >
+      {children}
+    </a>
+  );
+}
+
+function MetadataRow({
+  label,
+  children,
+}: {
+  label: string;
+  children: ReactNode;
+}) {
+  return (
+    <div className="grid gap-2 border-t border-[var(--line)] py-4 md:grid-cols-[150px_1fr]">
+      <dt className="text-sm font-semibold text-[var(--foreground)]">{label}</dt>
+      <dd className="text-sm leading-6 text-[var(--ink-muted)]">{children}</dd>
+    </div>
+  );
+}
+
+const pcrAbstract =
+  "Polymerase Chain Reaction (PCR) is a fundamental technique in molecular biology, extensively employed in genetic analysis, disease diagnostics, and forensic science. Despite its critical role, the preparation of PCR reactions remains a labor-intensive process that relies on precise pipetting of reagents, a task susceptible to human error and variability. Manual pipetting can lead to inconsistencies in sample preparation, impacting the accuracy and reproducibility of experimental results. To address these challenges, computer automation has gained significant attention, aiming to improve efficiency, precision, and scalability in laboratory workflows. This work presents an innovative robotic system designed to automate the pipetting process for PCR preparation using the xArm 6 Lite robotic arm. Our approach combines computer vision for precise object localization and volume verification, a custom 3D-printed gripper for micropipette manipulation, and motorized actuation controlled by an Arduino-based system. By leveraging the Robot Operating System (ROS) and Python, along with deep learning-based image analysis techniques, we enhance the precision and repeatability of the PCR process.";
+
+function PcrAutomationPage() {
+  return (
+    <article className="bg-[#f7f8f4] text-[#20251f] dark:bg-[#111410] dark:text-[#f4f6ef]">
+      <section className="border-b border-[#d9dfce] px-5 py-10 dark:border-white/10">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="max-w-3xl">
+            <Link
+              className="text-sm text-[var(--ink-muted)] transition hover:text-[var(--foreground)]"
+              href="/projects"
+            >
+              Back to projects
+            </Link>
+            <p className="mt-10 text-xs font-semibold uppercase tracking-[0.2em] text-[#7a6a25] dark:text-[#e6d36c]">
+              Completed Robotics And Lab Automation Project
+            </p>
+            <h1 className="mt-4 text-4xl font-semibold leading-tight md:text-6xl">
+              Automating PCR with the UFACTORY xArm 6 Lite
+            </h1>
+            <p className="mt-5 max-w-2xl text-lg leading-8 text-[var(--ink-muted)]">
+              A UT Austin ECLAIR club group project exploring robotic PCR
+              preparation through computer vision, a custom pipette gripper,
+              Arduino-controlled actuation, and ROS/Python xArm control.
+            </p>
+            <div className="mt-7 flex flex-wrap gap-3 text-sm">
+              <RepositoryLink href="https://github.com/ECLAIR-Robotics/PCR_Automation">
+                GitHub repository
+              </RepositoryLink>
+              <RepositoryLink href="https://repositories.lib.utexas.edu/items/9625fabd-98cf-4bac-ad2c-cec61da85e15">
+                Texas ScholarWorks record
+              </RepositoryLink>
+              <RepositoryLink href="https://doi.org/10.26153/tsw/60485">
+                DOI
+              </RepositoryLink>
+            </div>
+          </div>
+
+          <div className="grid gap-4">
+            <div className="overflow-hidden rounded border border-[#d9dfce] bg-white shadow-xl shadow-black/5 dark:border-white/10 dark:bg-white/[0.04]">
+              <Image
+                alt="Poster titled Automating PCR with the UFACTORY xArm 6 Lite"
+                className="h-auto w-full"
+                height={5040}
+                priority
+                src="/pcr-automation/pcr-poster.png"
+                width={6720}
+              />
+            </div>
+            <p className="text-sm leading-6 text-[var(--ink-muted)]">
+              Presented as a 2025 Research Week poster and archived through
+              Texas ScholarWorks.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-5 py-12">
+        <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-4">
+          {[
+            ["Date", "2025"],
+            ["Department", "Computer Science"],
+            ["Keywords", "Robotics, computer science, PCR"],
+            ["Collection", "Research Week"],
+          ].map(([label, value]) => (
+            <div
+              className="rounded border border-[#d9dfce] bg-white/75 p-5 dark:border-white/10 dark:bg-white/[0.04]"
+              key={label}
+            >
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#7a6a25] dark:text-[#e6d36c]">
+                {label}
+              </p>
+              <p className="mt-2 text-sm font-medium">{value}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="px-5 pb-12">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.72fr_1.28fr]">
+          <div>
+            <h2 className="text-2xl font-semibold">Primary Materials</h2>
+            <div className="mt-5 grid gap-3 text-sm">
+              <RepositoryLink href="https://repositories.lib.utexas.edu/bitstreams/83db988a-1399-4e92-9f11-feadfe222a72/download">
+                PCR Poster.pptx.pdf (441.88 KB)
+              </RepositoryLink>
+              <a
+                className="text-[var(--accent-strong)] underline-offset-4 transition hover:underline"
+                href="/pcr-automation/pcr-poster.pdf"
+              >
+                Local poster PDF
+              </a>
+              <RepositoryLink href="https://github.com/ECLAIR-Robotics/PCR_Automation">
+                ECLAIR-Robotics/PCR_Automation
+              </RepositoryLink>
+              <RepositoryLink href="https://hdl.handle.net/2152/133153">
+                https://hdl.handle.net/2152/133153
+              </RepositoryLink>
+              <RepositoryLink href="https://doi.org/10.26153/tsw/60485">
+                https://doi.org/10.26153/tsw/60485
+              </RepositoryLink>
+            </div>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-semibold">Project Summary</h2>
+            <p className="mt-4 leading-8 text-[var(--ink-muted)]">
+              {pcrAbstract}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y border-[#d9dfce] bg-white px-5 py-12 dark:border-white/10 dark:bg-white/[0.03]">
+        <div className="mx-auto grid max-w-7xl gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {[
+            [
+              "Vision",
+              "Localized beakers and workspace elements for robotic interaction.",
+            ],
+            [
+              "End Effector",
+              "Custom 3D-printed gripper designed around micropipette handling.",
+            ],
+            [
+              "Actuation",
+              "Arduino-controlled motorized pipette operation for liquid transfer.",
+            ],
+            [
+              "Robot Control",
+              "ROS/Python workflow coordinating the UFACTORY xArm 6 Lite.",
+            ],
+          ].map(([title, text]) => (
+            <div
+              className="rounded border border-[#d9dfce] bg-[#f7f8f4] p-5 dark:border-white/10 dark:bg-white/[0.04]"
+              key={title}
+            >
+              <h3 className="text-lg font-semibold">{title}</h3>
+              <p className="mt-3 text-sm leading-6 text-[var(--ink-muted)]">
+                {text}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-white px-5 py-12 dark:bg-white/[0.03]">
+        <div className="mx-auto max-w-7xl">
+          <h2 className="text-2xl font-semibold">Project Team</h2>
+          <div className="mt-5 flex flex-wrap gap-x-3 gap-y-2 text-sm leading-6 text-[var(--ink-muted)]">
+            {pcrAuthors.map(([name, href], index) => (
+              <span key={name}>
+                <RepositoryLink href={href}>{name}</RepositoryLink>
+                {index < pcrAuthors.length - 1 ? "," : ""}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-5 py-12">
+        <div className="mx-auto max-w-7xl">
+          <h2 className="text-2xl font-semibold">Archive Details</h2>
+          <dl className="mt-4">
+            <MetadataRow label="Date">
+              <RepositoryLink href="https://repositories.lib.utexas.edu/browse/dateissued?startsWith=2025">
+                2025
+              </RepositoryLink>
+            </MetadataRow>
+            <MetadataRow label="Department">
+              <RepositoryLink href="https://repositories.lib.utexas.edu/browse/department?startsWith=Computer%20Science">
+                Computer Science
+              </RepositoryLink>
+            </MetadataRow>
+            <MetadataRow label="Keywords">
+              Robotics, computer science, PCR
+            </MetadataRow>
+            <MetadataRow label="URI">
+              <div className="grid gap-1">
+                <RepositoryLink href="https://hdl.handle.net/2152/133153">
+                  https://hdl.handle.net/2152/133153
+                </RepositoryLink>
+                <RepositoryLink href="https://doi.org/10.26153/tsw/60485">
+                  https://doi.org/10.26153/tsw/60485
+                </RepositoryLink>
+              </div>
+            </MetadataRow>
+            <MetadataRow label="Collections">
+              <RepositoryLink href="https://repositories.lib.utexas.edu/collections/c84a9566-3beb-46f1-8067-81548a59aae4">
+                Research Week
+              </RepositoryLink>
+            </MetadataRow>
+          </dl>
+        </div>
+      </section>
+    </article>
+  );
+}
+
+const emulatorTeam = ["Archit Patil", "Jai Nagaraj", "Ella Whitney", "Rishi"];
+
+const emulatorTechDetails = [
+  ["Language", "C++"],
+  ["Graphics/Input", "SDL2"],
+  [
+    "Core Architecture",
+    "Modular emulator with separate CPU, MMU, RAM, PPU, timer, interrupt, and input components",
+  ],
+  [
+    "CPU",
+    "Implements Game Boy SM83-style instruction execution, register behavior, stack operations, and instruction decoding",
+  ],
+  [
+    "Memory",
+    "Emulates 64KB addressable memory, ROM loading, VRAM, OAM, and memory-mapped I/O",
+  ],
+  [
+    "PPU",
+    "Renders background, window, and sprites through a scanline-based graphics pipeline",
+  ],
+  [
+    "Timing",
+    "Coordinates CPU cycles, PPU ticks, hardware timers, interrupts, and VBlank behavior",
+  ],
+  ["Input", "Maps SDL keyboard events to Game Boy joypad buttons"],
+  [
+    "ROM Support",
+    "Runs included no-MBC .gb ROMs from the project's games/ directory",
+  ],
+  ["Performance Goal", "Smooth real-time emulation around 60 FPS"],
+];
+
+const emulatorHardwareAreas = [
+  {
+    title: "CPU",
+    text: "SM83-style instruction execution, register behavior, flag updates, stack operations, and decoded control flow.",
+  },
+  {
+    title: "Memory",
+    text: "64KB address space covering ROM loading, VRAM, OAM, RAM regions, and memory-mapped device registers.",
+  },
+  {
+    title: "PPU",
+    text: "Scanline rendering for background, window, and sprite layers, synchronized with VBlank behavior.",
+  },
+  {
+    title: "I/O",
+    text: "Timers, interrupts, and joypad state modeled as hardware-facing emulator components.",
+  },
+];
+
+const emulatorRoms = [
+  "Tetris",
+  "Dr. Mario",
+  "Tennis",
+  "NFL Football",
+  "Dragon Slayer",
+];
+
+function GameBoyEmulatorPage() {
+  return (
+    <article className="bg-[#f4f6ef] text-[#20251e] dark:bg-[#10130f] dark:text-[#f4f6ef]">
+      <section className="border-b border-[#d1d8b8] px-5 py-10 dark:border-white/10">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[0.92fr_1.08fr]">
+          <div className="max-w-3xl">
+            <Link
+              className="text-sm text-[var(--ink-muted)] transition hover:text-[var(--foreground)]"
+              href="/projects"
+            >
+              Back to projects
+            </Link>
+            <p className="mt-10 text-xs font-semibold uppercase tracking-[0.2em] text-[#6f7f2f] dark:text-[#c4da67]">
+              Completed Computer Architecture Project
+            </p>
+            <h1 className="mt-4 text-4xl font-semibold leading-tight md:text-6xl">
+              GheithBoy Emulator
+            </h1>
+            <p className="mt-5 max-w-2xl text-lg leading-8 text-[var(--ink-muted)]">
+              A C++ Game Boy emulator built with SDL2 for graphics and keyboard
+              input, modeling the original handheld's CPU, memory system,
+              graphics pipeline, timers, interrupts, and joypad controls.
+            </p>
+            <div className="mt-7 flex flex-wrap gap-3 text-sm">
+              <RepositoryLink href="https://github.com/architrahul/Gheithboy-emulator">
+                GitHub repository
+              </RepositoryLink>
+            </div>
+          </div>
+
+          <div className="grid gap-4">
+            <div className="overflow-hidden rounded border border-[#d1d8b8] bg-[#e8ecd8] p-3 shadow-xl shadow-black/5 dark:border-white/10 dark:bg-white/[0.04]">
+              <Image
+                alt="GheithBoy emulator demo screen showing a Game Boy game running"
+                className="h-auto w-full rounded-sm"
+                height={1231}
+                priority
+                src="/game-boy-emulator/demo.png"
+                width={1298}
+              />
+            </div>
+            <p className="text-sm leading-6 text-[var(--ink-muted)]">
+              Built as an April 2025 Computer Architecture final project by
+              Archit Patil, Jai Nagaraj, Ella Whitney, and Rishi.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-5 py-12">
+        <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-4">
+          {[
+            ["Date", "April 2025"],
+            ["Course", "Computer Architecture"],
+            ["Language", "C++"],
+            ["Runtime Target", "About 60 FPS"],
+          ].map(([label, value]) => (
+            <div
+              className="rounded border border-[#d4dbc0] bg-white/75 p-5 dark:border-white/10 dark:bg-white/[0.04]"
+              key={label}
+            >
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6f7f2f] dark:text-[#c4da67]">
+                {label}
+              </p>
+              <p className="mt-2 text-sm font-medium">{value}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="px-5 pb-12">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.72fr_1.28fr]">
+          <div>
+            <h2 className="text-2xl font-semibold">Primary Materials</h2>
+            <div className="mt-5 grid gap-3 text-sm">
+              <RepositoryLink href="https://github.com/architrahul/Gheithboy-emulator">
+                architrahul/Gheithboy-emulator
+              </RepositoryLink>
+              <a
+                className="text-[var(--accent-strong)] underline-offset-4 transition hover:underline"
+                href="/game-boy-emulator/demo.png"
+              >
+                Local demo image
+              </a>
+            </div>
+
+            <h2 className="mt-10 text-2xl font-semibold">Included No-MBC ROMs</h2>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {emulatorRoms.map((rom) => (
+                <span
+                  className="rounded border border-[#d4dbc0] bg-white/70 px-3 py-1 text-sm text-[var(--ink-muted)] dark:border-white/10 dark:bg-white/[0.05]"
+                  key={rom}
+                >
+                  {rom}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-semibold">Website Summary</h2>
+            <p className="mt-4 leading-8 text-[var(--ink-muted)]">
+              Built a C++ Game Boy emulator that models the original handheld's
+              CPU, memory system, graphics pipeline, timers, interrupts, and
+              input handling. The emulator uses SDL2 to render frames and
+              process keyboard controls, and supports multiple included no-MBC
+              Game Boy ROMs. The project emphasized low-level systems
+              programming, hardware emulation, instruction decoding,
+              memory-mapped device behavior, and real-time rendering at roughly
+              60 FPS.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y border-[#d4dbc0] bg-white px-5 py-12 dark:border-white/10 dark:bg-white/[0.03]">
+        <div className="mx-auto max-w-7xl">
+          <h2 className="text-2xl font-semibold">Emulated Hardware Areas</h2>
+          <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            {emulatorHardwareAreas.map((item) => (
+              <div
+                className="rounded border border-[#d4dbc0] bg-[#f6f7f1] p-5 dark:border-white/10 dark:bg-white/[0.04]"
+                key={item.title}
+              >
+                <h3 className="text-lg font-semibold">{item.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-[var(--ink-muted)]">
+                  {item.text}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-5 py-12">
+        <div className="mx-auto max-w-7xl">
+          <h2 className="text-2xl font-semibold">Technical Details</h2>
+          <dl className="mt-4">
+            {emulatorTechDetails.map(([label, value]) => (
+              <MetadataRow label={label} key={label}>
+                {value}
+              </MetadataRow>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      <section className="border-t border-[#d4dbc0] bg-white px-5 py-12 dark:border-white/10 dark:bg-white/[0.03]">
+        <div className="mx-auto max-w-7xl">
+          <h2 className="text-2xl font-semibold">Project Team</h2>
+          <div className="mt-5 flex flex-wrap gap-x-3 gap-y-2 text-sm leading-6 text-[var(--ink-muted)]">
+            {emulatorTeam.map((name, index) => (
+              <span key={name}>
+                {name}
+                {index < emulatorTeam.length - 1 ? "," : ""}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+    </article>
   );
 }
 
@@ -349,6 +843,43 @@ function PphCupPage() {
                 focused on delivering a clearer volume signal during the
                 immediate postpartum window.
               </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-[#d5e5df] bg-white px-5 py-14 dark:border-white/10 dark:bg-[#121a18]">
+        <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-[0.9fr_1.1fr]">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#0f766e] dark:text-[#7dd3c7]">
+              Contact And Inquiry
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold text-[#132d29] dark:text-white">
+              For clinical, product, or collaboration inquiries.
+            </h2>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            <a
+              className="rounded border border-[#dce9e5] bg-[#f6fbf9] p-5 transition hover:border-[#0f766e] dark:border-white/10 dark:bg-white/[0.04]"
+              href="tel:+919823040164"
+            >
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#9b3f55] dark:text-[#f3a6b7]">
+                Phone
+              </p>
+              <p className="mt-2 text-lg font-semibold text-[#132d29] dark:text-white">
+                +91 9823040164
+              </p>
+            </a>
+            <a
+              className="rounded border border-[#dce9e5] bg-[#f6fbf9] p-5 transition hover:border-[#0f766e] dark:border-white/10 dark:bg-white/[0.04]"
+              href="mailto:architrahul2006@gmail.com"
+            >
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#9b3f55] dark:text-[#f3a6b7]">
+                Email
+              </p>
+              <p className="mt-2 break-words text-lg font-semibold text-[#132d29] dark:text-white">
+                architrahul2006@gmail.com
+              </p>
+            </a>
           </div>
         </div>
       </section>

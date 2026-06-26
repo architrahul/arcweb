@@ -18,6 +18,12 @@ const navItems = [
 
 export function TopNav() {
   const pathname = usePathname();
+  const activeHref =
+    navItems
+      .filter(
+        (item) => pathname === item.href || pathname.startsWith(`${item.href}/`),
+      )
+      .sort((a, b) => b.href.length - a.href.length)[0]?.href ?? null;
 
   return (
     <header className="sticky top-0 z-40 bg-[var(--nav-bg)] backdrop-blur-md">
@@ -38,7 +44,7 @@ export function TopNav() {
               <Link
                 className={cx(
                   "whitespace-nowrap border-b pb-1 transition duration-300 ease-out hover:border-current hover:text-[var(--foreground)]",
-                  pathname === item.href || pathname.startsWith(`${item.href}/`)
+                  activeHref === item.href
                     ? "border-[var(--accent-strong)] text-[var(--foreground)]"
                     : "border-transparent",
                 )}

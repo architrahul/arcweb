@@ -13,7 +13,7 @@ export type Project = {
   motivation: string;
   approach: string;
   results: string;
-  artifacts?: string[];
+  artifacts?: Array<string | { label: string; href: string }>;
   timeline: string[];
   related: string[];
 };
@@ -37,7 +37,7 @@ export const projects: Project[] = [
     results:
       "The first site version reserves this page for methods, benchmarks, artifacts, and result summaries.",
     timeline: ["Prototype algorithm", "Benchmark harness", "Research writeup"],
-    related: ["computational-biology-research", "rna-interaction-energy-distribution"],
+    related: ["rna-interaction-energy-distribution"],
   },
   {
     slug: "pareto-optimal-polymer-enumeration",
@@ -75,7 +75,7 @@ export const projects: Project[] = [
       "Study secure computation primitives, model realistic genomic tasks, and measure practical tradeoffs.",
     results: "This page will become the home for notes, experiments, and references.",
     timeline: ["Literature map", "Prototype workloads", "Performance notes"],
-    related: ["long-inverted-repeat-detection", "computational-biology-research"],
+    related: ["long-inverted-repeat-detection"],
   },
   {
     slug: "rna-interaction-energy-distribution",
@@ -94,25 +94,43 @@ export const projects: Project[] = [
       "Combine sequence sampling, energy evaluation, and statistical summaries of interaction behavior.",
     results: "Reserved for early plots, methodology, and validation notes.",
     timeline: ["Sampling setup", "Energy calculations", "Distribution analysis"],
-    related: ["long-inverted-repeat-detection", "computational-biology-research"],
+    related: ["long-inverted-repeat-detection"],
   },
   {
     slug: "game-boy-emulator",
-    title: "Game Boy Emulator",
-    description: "A systems project implementing classic handheld console behavior.",
+    title: "GheithBoy Emulator",
+    description:
+      "A C++ and SDL2 Game Boy emulator modeling CPU, memory, graphics, timers, interrupts, and input.",
     status: "Completed",
-    tags: ["Systems", "Emulation", "Low-Level"],
+    tags: ["C++", "Emulation", "Computer Architecture"],
     position: { x: 76, y: 60 },
     summary:
-      "A low-level systems project focused on CPU behavior, memory mapping, graphics, and timing.",
+      "A Computer Architecture final project building a C++ Game Boy emulator with SDL2 graphics and keyboard input.",
     problem:
-      "Accurate emulation requires many small hardware details to cooperate under strict timing constraints.",
+      "Accurate Game Boy emulation requires the CPU, memory-mapped devices, graphics pipeline, timers, interrupts, and input state to cooperate under hardware-style timing constraints.",
     motivation:
-      "Emulators are a compact way to learn systems programming, debugging, and architectural fidelity.",
+      "Emulator development is a compact way to connect instruction-level architecture, memory systems, device behavior, and real-time rendering.",
     approach:
-      "Implement the core CPU loop, memory model, display pipeline, and test against known behavior.",
-    results: "This page will collect implementation notes and screenshots when ready.",
-    timeline: ["CPU core", "Memory bus", "Display pipeline"],
+      "The team implemented modular CPU, MMU, RAM, PPU, timer, interrupt, and joypad components, using SDL2 for frame rendering and keyboard events.",
+    results:
+      "The emulator runs multiple included no-MBC Game Boy ROMs, including Tetris, Dr. Mario, Tennis, NFL Football, and Dragon Slayer, with a real-time performance target near 60 FPS.",
+    artifacts: [
+      {
+        label: "GitHub repository",
+        href: "https://github.com/architrahul/Gheithboy-emulator",
+      },
+      {
+        label: "Demo image",
+        href: "/game-boy-emulator/demo.png",
+      },
+    ],
+    timeline: [
+      "Computer Architecture final project",
+      "SM83-style CPU and instruction execution",
+      "Memory-mapped I/O and hardware timers",
+      "SDL2 rendering and keyboard controls",
+      "April 2025 project completion",
+    ],
     related: ["coroutine-implementations", "verilog-pipelining"],
   },
   {
@@ -120,7 +138,7 @@ export const projects: Project[] = [
     title: "PPH Cup",
     description:
       "A low-cost silicone medical device for quantitative postpartum hemorrhage monitoring.",
-    status: "Active",
+    status: "Completed",
     tags: ["Medical Device", "Maternal Health", "Obstetrics"],
     position: { x: 46, y: 78 },
     summary:
@@ -145,26 +163,47 @@ export const projects: Project[] = [
       "Clinical-study documentation",
       "Obstetric workflow feedback",
     ],
-    related: ["medical-device-startup"],
+    related: [],
   },
   {
-    slug: "medical-device-startup",
-    title: "Medical Device Startup",
-    description: "A product and engineering effort around healthcare technology.",
-    status: "Active",
-    tags: ["Medical Devices", "Product", "Engineering"],
-    position: { x: 54, y: 72 },
+    slug: "automating-pcr-xarm",
+    title: "Automating PCR with the UFACTORY xArm 6 Lite",
+    description:
+      "A UT Austin ECLAIR club group project automating PCR preparation with robotics, vision, and motorized pipette control.",
+    status: "Completed",
+    tags: ["Robotics", "PCR", "Computer Vision"],
+    position: { x: 58, y: 54 },
     summary:
-      "A practical engineering track connecting technical development, users, and clinical constraints.",
+      "A 2025 Research Week poster from a UT Austin ECLAIR club group project that explored robotic automation for PCR preparation using the UFACTORY xArm 6 Lite.",
     problem:
-      "Healthcare tools need to work within demanding human, regulatory, and operational contexts.",
+      "PCR reaction setup relies on precise manual pipetting, which is labor-intensive and can introduce variability into sample preparation.",
     motivation:
-      "The best technical ideas need product discipline to become useful in real clinical settings.",
+      "Automating repetitive lab preparation steps can improve efficiency, precision, and reproducibility in molecular biology workflows.",
     approach:
-      "Combine prototyping, user discovery, technical validation, and product scoping.",
-    results: "The first public version will stay high-level until details are ready to share.",
-    timeline: ["Discovery", "Prototype", "Validation"],
-    related: ["pph-cup", "privacy-preserving-genomics"],
+      "The project combined computer vision for beaker and workspace localization, a custom 3D-printed gripper for micropipette manipulation, Arduino-controlled motorized pipette actuation, and ROS/Python control around the xArm 6 Lite.",
+    results:
+      "Presented as a 2025 UT Austin Research Week poster and archived through the Texas ScholarWorks repository.",
+    artifacts: [
+      {
+        label: "Texas ScholarWorks repository record",
+        href: "https://repositories.lib.utexas.edu/items/9625fabd-98cf-4bac-ad2c-cec61da85e15",
+      },
+      {
+        label: "DOI: 10.26153/tsw/60485",
+        href: "https://doi.org/10.26153/tsw/60485",
+      },
+      {
+        label: "Poster PDF",
+        href: "/pcr-automation/pcr-poster.pdf",
+      },
+    ],
+    timeline: [
+      "ECLAIR club group project",
+      "Robotic PCR workflow prototype",
+      "2025 Research Week poster",
+      "Texas ScholarWorks archive",
+    ],
+    related: [],
   },
   {
     slug: "coroutine-implementations",
@@ -203,24 +242,5 @@ export const projects: Project[] = [
     results: "This page will hold design notes and representative modules.",
     timeline: ["Module design", "Pipeline stages", "Simulation"],
     related: ["game-boy-emulator", "coroutine-implementations"],
-  },
-  {
-    slug: "computational-biology-research",
-    title: "Computational Biology Research",
-    description: "Research questions at the edge of algorithms and biological data.",
-    status: "Active",
-    tags: ["Computational Biology", "Research", "Algorithms"],
-    position: { x: 18, y: 68 },
-    summary:
-      "A broader research area collecting computational biology projects, questions, and collaborations.",
-    problem:
-      "Biological data often requires algorithms that respect both computational constraints and scientific context.",
-    motivation:
-      "Strong computational tools can make difficult biological questions easier to ask and test.",
-    approach:
-      "Frame research questions, build focused tools, and evaluate them against realistic biological data.",
-    results: "This page will eventually link out to specific papers, posters, and project artifacts.",
-    timeline: ["Research questions", "Project prototypes", "Artifacts"],
-    related: ["long-inverted-repeat-detection", "rna-interaction-energy-distribution"],
   },
 ];
