@@ -58,7 +58,7 @@ export default function ResumePage() {
       <div className="flex flex-wrap items-end justify-between gap-4 border-b border-[var(--line)] pb-8">
         <div>
           <p className="text-xs font-semibold uppercase text-[var(--accent-strong)]">
-            Resume
+            Resume/CV
           </p>
           <h1 className="mt-2 text-4xl font-semibold">Archit Patil</h1>
           <p className="mt-3 max-w-3xl leading-7 text-[var(--ink-muted)]">
@@ -71,7 +71,7 @@ export default function ResumePage() {
           <Button href="/resume/Archit_Resume.pdf" variant="primary">
             Download Resume
           </Button>
-          <Button href="/cv/archit-cv.pdf" variant="quiet">
+          <Button href="/cv/archit-cv.pdf" variant="primary">
             Academic CV
           </Button>
         </div>

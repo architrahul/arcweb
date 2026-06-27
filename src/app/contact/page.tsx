@@ -2,7 +2,6 @@ import { Card } from "@/components/ui/Card";
 
 const links = [
   { label: "Email", value: "architpatil@utexas.edu", href: "mailto:architpatil@utexas.edu" },
-  { label: "Phone", value: "+1 469 325 8093", href: "tel:+14693258093" },
   { label: "GitHub", value: "github.com/architrahul", href: "https://github.com/architrahul" },
   { label: "LinkedIn", value: "linkedin.com/in/architrpatil", href: "https://www.linkedin.com/in/architrpatil/" },
 ];
@@ -10,12 +9,19 @@ const links = [
 export default function ContactPage() {
   return (
     <section className="mx-auto max-w-4xl px-5 py-12">
-      <h1 className="text-3xl font-semibold">Contact</h1>
-      <p className="mt-3 max-w-2xl leading-7 text-[var(--ink-muted)]">
-        A focused contact page for collaborators, researchers, recruiters, and
-        people who want to talk through technical work.
+      <p className="text-xs font-semibold uppercase text-[var(--accent-strong)]">
+        Contact
       </p>
-      <div className="mt-8 grid gap-4 md:grid-cols-2">
+      <h1 className="mt-2 text-4xl font-semibold">Hi!</h1>
+      <p className="mt-4 max-w-2xl text-lg leading-8 text-[var(--ink-muted)]">
+        If you want to discuss project collaborations, research ideas,
+        internship opportunities, or anything else that seems relevant, feel
+        free to reach out.
+      </p>
+      <p className="mt-3 max-w-2xl leading-7 text-[var(--ink-muted)]">
+        Email is usually the best way to reach me.
+      </p>
+      <div className="mt-8 grid gap-4 md:grid-cols-3">
         {links.map((link) => (
           <Card key={link.label}>
             <p className="text-xs font-semibold uppercase text-[var(--accent-strong)]">
