@@ -55,14 +55,12 @@
 
 html {
   min-height: 100%;
-  overscroll-behavior-y: none;
   scroll-behavior: smooth;
 }
 
 body {
   min-height: 100vh;
   margin: 0;
-  overscroll-behavior-y: none;
   background:
     radial-gradient(circle at 20% 0%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 32rem),
     linear-gradient(180deg, #fbf7ec 0%, var(--background) 100%);

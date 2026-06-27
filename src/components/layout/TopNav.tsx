@@ -106,7 +106,7 @@ export function TopNav() {
 
       <aside
         className={cx(
-          "fixed right-0 top-[var(--nav-height)] z-50 h-[calc(100dvh-var(--nav-height))] w-[min(82vw,320px)] overflow-y-auto border-l border-[var(--line)] bg-[var(--background)] shadow-2xl transition-transform duration-200 md:hidden",
+          "fixed right-0 top-[var(--nav-height)] z-50 h-[calc(100dvh-var(--nav-height))] w-[min(82vw,320px)] overflow-y-auto overscroll-contain border-l border-[var(--line)] bg-[var(--background)] shadow-2xl transition-transform duration-200 md:hidden",
           isMenuOpen ? "translate-x-0" : "translate-x-full",
         )}
       >
