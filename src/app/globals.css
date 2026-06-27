@@ -130,6 +130,31 @@ select {
   color: var(--accent-strong);
 }
 
+.research-inline-link {
+  color: var(--accent-strong);
+  font-weight: 650;
+  text-decoration-line: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent) 72%, transparent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  transition:
+    color 160ms ease-out,
+    text-decoration-color 160ms ease-out,
+    background-color 160ms ease-out;
+}
+
+.research-inline-link:hover,
+.research-inline-link:focus-visible {
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  text-decoration-color: var(--foreground);
+}
+
+.research-inline-link:focus-visible {
+  outline: 2px solid var(--accent-strong);
+  outline-offset: 3px;
+}
+
 .pph-device-page {
   background: #f7fbfa !important;
   color: #142320 !important;

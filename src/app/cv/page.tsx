@@ -16,11 +16,11 @@ export default function CvPage() {
         <div>
           <h1 className="text-3xl font-semibold">CV</h1>
           <p className="mt-3 max-w-2xl leading-7 text-[var(--ink-muted)]">
-            A simple academic CV page with room for the core sections and a
-            downloadable PDF.
+            A downloadable academic CV with research, publications, projects,
+            and awards.
           </p>
         </div>
-        <Button href="/cv/cv.pdf" variant="quiet">
+        <Button href="/cv/archit-cv.pdf" variant="quiet">
           Download PDF
         </Button>
       </div>
