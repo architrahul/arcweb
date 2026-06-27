@@ -3,9 +3,15 @@ import Link from "next/link";
 import { Card } from "@/components/ui/Card";
 
 const details = [
-  { label: "Focus", value: "Computational biology, algorithms, systems, and privacy-preserving genomics" },
-  { label: "Current", value: "Personal research portfolio and technical project atlas" },
-  { label: "Location", value: "Texas" },
+  {
+    label: "Focus",
+    value:
+      "Algorithms, molecular computing, cryptographic methods, computational biology, privacy-preserving genomics, and systems",
+  },
+  {
+    label: "Location",
+    value: "University of Texas at Austin, Austin, Texas",
+  },
 ];
 
 const links = [
@@ -32,8 +38,8 @@ export default function ProfilePage() {
             <div className="border-t border-[var(--line)] p-5">
               <h1 className="text-2xl font-semibold">Archit Patil</h1>
               <p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
-                Research-minded builder working across computational biology,
-                algorithms, privacy, and systems projects.
+                CS Turing, math, and computational biology undergraduate at UT
+                Austin.
               </p>
             </div>
           </div>
@@ -59,15 +65,21 @@ export default function ProfilePage() {
           <p className="text-xs font-semibold uppercase text-[var(--accent-strong)]">
             Profile
           </p>
-          <h2 className="mt-2 text-4xl font-semibold">Personal Site</h2>
+          <h2 className="mt-2 text-4xl font-semibold">Hi, I&apos;m Archit.</h2>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-[var(--ink-muted)]">
-            Arcweb is a personal website first: a place for background,
-            research direction, project taste, writing, and contact details.
-            The atlas makes the work explorable, but the profile keeps the
-            person visible.
+            I&apos;m a CS Turing, math, and computational biology undergraduate
+            student at UT Austin. I like working on interdisciplinary problems:
+            molecular computing, genome algorithms, privacy-preserving ML,
+            systems projects, and medical devices that somehow made it into the
+            real world.
+          </p>
+          <p className="mt-4 max-w-3xl text-lg leading-8 text-[var(--ink-muted)]">
+            Arcweb is my personal website: a place to put my portfolio, project
+            info, and half-baked ideas before they become polished enough to
+            turn into proper projects.
           </p>
 
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
+          <div className="mt-8 grid gap-4 md:grid-cols-2">
             {details.map((detail) => (
               <Card key={detail.label}>
                 <p className="text-xs font-semibold uppercase text-[var(--accent-strong)]">
@@ -87,8 +99,8 @@ export default function ProfilePage() {
                 <Card className="h-full transition hover:border-[var(--accent)]">
                   <h4 className="font-semibold">Research</h4>
                   <p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
-                    Current areas, selected research projects, and future
-                    publication structure.
+                    The main questions I&apos;m working on, questions I&apos;ve
+                    worked on in the past, and a few random outlandish ideas.
                   </p>
                 </Card>
               </Link>
@@ -96,8 +108,7 @@ export default function ProfilePage() {
                 <Card className="h-full transition hover:border-[var(--accent)]">
                   <h4 className="font-semibold">Projects</h4>
                   <p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
-                    A linear project index for visitors who prefer direct
-                    navigation over the atlas.
+                    A list of some of the recent projects I&apos;ve done.
                   </p>
                 </Card>
               </Link>
