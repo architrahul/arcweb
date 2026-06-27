@@ -26,8 +26,8 @@ export function TopNav() {
       .sort((a, b) => b.href.length - a.href.length)[0]?.href ?? null;
 
   return (
-    <header className="sticky top-0 z-40 bg-[var(--nav-bg)] backdrop-blur-md">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-4">
+    <header className="fixed inset-x-0 top-0 z-40 h-[var(--nav-height)] border-b border-[var(--line)] bg-[var(--nav-bg)] shadow-sm shadow-black/5 backdrop-blur-md">
+      <nav className="mx-auto flex h-full max-w-7xl items-center justify-between gap-6 px-5">
         <Link className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.18em]" href="/">
           <Image
             alt="Arcweb AP logo"
@@ -58,10 +58,6 @@ export function TopNav() {
           <ThemeToggle />
         </div>
       </nav>
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-full h-8 bg-gradient-to-b from-[var(--nav-bg)] to-transparent"
-      />
     </header>
   );
 }

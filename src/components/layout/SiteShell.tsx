@@ -2,9 +2,9 @@ import { TopNav } from "@/components/layout/TopNav";
 
 export function SiteShell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen">
+    <div>
       <TopNav />
-      <main>{children}</main>
+      <main className="pt-[var(--nav-height)]">{children}</main>
     </div>
   );
 }

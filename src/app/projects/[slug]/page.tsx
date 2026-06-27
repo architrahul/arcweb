@@ -185,8 +185,8 @@ const pcrAbstract =
 
 function PcrAutomationPage() {
   return (
-    <article className="bg-[#f7f8f4] text-[#20251f] dark:bg-[#111410] dark:text-[#f4f6ef]">
-      <section className="border-b border-[#d9dfce] px-5 py-10 dark:border-white/10">
+    <article className="project-case-page">
+      <section className="case-section border-b px-5 py-10">
         <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="max-w-3xl">
             <Link
@@ -195,7 +195,7 @@ function PcrAutomationPage() {
             >
               Back to projects
             </Link>
-            <p className="mt-10 text-xs font-semibold uppercase tracking-[0.2em] text-[#7a6a25] dark:text-[#e6d36c]">
+            <p className="mt-10 text-xs font-semibold uppercase tracking-[0.2em] case-accent">
               Completed Robotics And Lab Automation Project
             </p>
             <h1 className="mt-4 text-4xl font-semibold leading-tight md:text-6xl">
@@ -220,7 +220,7 @@ function PcrAutomationPage() {
           </div>
 
           <div className="grid gap-4">
-            <div className="overflow-hidden rounded border border-[#d9dfce] bg-white shadow-xl shadow-black/5 dark:border-white/10 dark:bg-white/[0.04]">
+            <div className="overflow-hidden rounded border case-panel shadow-xl shadow-black/5">
               <Image
                 alt="Poster titled Automating PCR with the UFACTORY xArm 6 Lite"
                 className="h-auto w-full"
@@ -247,10 +247,10 @@ function PcrAutomationPage() {
             ["Collection", "Research Week"],
           ].map(([label, value]) => (
             <div
-              className="rounded border border-[#d9dfce] bg-white/75 p-5 dark:border-white/10 dark:bg-white/[0.04]"
+              className="rounded border case-panel p-5"
               key={label}
             >
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#7a6a25] dark:text-[#e6d36c]">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] case-accent">
                 {label}
               </p>
               <p className="mt-2 text-sm font-medium">{value}</p>
@@ -294,7 +294,7 @@ function PcrAutomationPage() {
         </div>
       </section>
 
-      <section className="border-y border-[#d9dfce] bg-white px-5 py-12 dark:border-white/10 dark:bg-white/[0.03]">
+      <section className="case-section border-y case-soft px-5 py-12">
         <div className="mx-auto grid max-w-7xl gap-4 md:grid-cols-2 lg:grid-cols-4">
           {[
             [
@@ -315,7 +315,7 @@ function PcrAutomationPage() {
             ],
           ].map(([title, text]) => (
             <div
-              className="rounded border border-[#d9dfce] bg-[#f7f8f4] p-5 dark:border-white/10 dark:bg-white/[0.04]"
+              className="rounded border case-panel p-5"
               key={title}
             >
               <h3 className="text-lg font-semibold">{title}</h3>
@@ -327,7 +327,7 @@ function PcrAutomationPage() {
         </div>
       </section>
 
-      <section className="bg-white px-5 py-12 dark:bg-white/[0.03]">
+      <section className="case-soft px-5 py-12">
         <div className="mx-auto max-w-7xl">
           <h2 className="text-2xl font-semibold">Project Team</h2>
           <div className="mt-5 flex flex-wrap gap-x-3 gap-y-2 text-sm leading-6 text-[var(--ink-muted)]">
@@ -442,8 +442,8 @@ const emulatorRoms = [
 
 function GameBoyEmulatorPage() {
   return (
-    <article className="bg-[#f4f6ef] text-[#20251e] dark:bg-[#10130f] dark:text-[#f4f6ef]">
-      <section className="border-b border-[#d1d8b8] px-5 py-10 dark:border-white/10">
+    <article className="project-case-page">
+      <section className="case-section border-b px-5 py-10">
         <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[0.92fr_1.08fr]">
           <div className="max-w-3xl">
             <Link
@@ -452,7 +452,7 @@ function GameBoyEmulatorPage() {
             >
               Back to projects
             </Link>
-            <p className="mt-10 text-xs font-semibold uppercase tracking-[0.2em] text-[#6f7f2f] dark:text-[#c4da67]">
+            <p className="mt-10 text-xs font-semibold uppercase tracking-[0.2em] case-accent">
               Completed Computer Architecture Project
             </p>
             <h1 className="mt-4 text-4xl font-semibold leading-tight md:text-6xl">
@@ -471,7 +471,7 @@ function GameBoyEmulatorPage() {
           </div>
 
           <div className="grid gap-4">
-            <div className="overflow-hidden rounded border border-[#d1d8b8] bg-[#e8ecd8] p-3 shadow-xl shadow-black/5 dark:border-white/10 dark:bg-white/[0.04]">
+            <div className="overflow-hidden rounded border case-panel p-3 shadow-xl shadow-black/5">
               <Image
                 alt="GheithBoy emulator demo screen showing a Game Boy game running"
                 className="h-auto w-full rounded-sm"
@@ -498,10 +498,10 @@ function GameBoyEmulatorPage() {
             ["Runtime Target", "About 60 FPS"],
           ].map(([label, value]) => (
             <div
-              className="rounded border border-[#d4dbc0] bg-white/75 p-5 dark:border-white/10 dark:bg-white/[0.04]"
+              className="rounded border case-panel p-5"
               key={label}
             >
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6f7f2f] dark:text-[#c4da67]">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] case-accent">
                 {label}
               </p>
               <p className="mt-2 text-sm font-medium">{value}</p>
@@ -530,7 +530,7 @@ function GameBoyEmulatorPage() {
             <div className="mt-4 flex flex-wrap gap-2">
               {emulatorRoms.map((rom) => (
                 <span
-                  className="rounded border border-[#d4dbc0] bg-white/70 px-3 py-1 text-sm text-[var(--ink-muted)] dark:border-white/10 dark:bg-white/[0.05]"
+                  className="rounded border case-panel px-3 py-1 text-sm text-[var(--ink-muted)]"
                   key={rom}
                 >
                   {rom}
@@ -555,13 +555,13 @@ function GameBoyEmulatorPage() {
         </div>
       </section>
 
-      <section className="border-y border-[#d4dbc0] bg-white px-5 py-12 dark:border-white/10 dark:bg-white/[0.03]">
+      <section className="case-section border-y case-soft px-5 py-12">
         <div className="mx-auto max-w-7xl">
           <h2 className="text-2xl font-semibold">Emulated Hardware Areas</h2>
           <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {emulatorHardwareAreas.map((item) => (
               <div
-                className="rounded border border-[#d4dbc0] bg-[#f6f7f1] p-5 dark:border-white/10 dark:bg-white/[0.04]"
+                className="rounded border case-panel p-5"
                 key={item.title}
               >
                 <h3 className="text-lg font-semibold">{item.title}</h3>
@@ -587,7 +587,7 @@ function GameBoyEmulatorPage() {
         </div>
       </section>
 
-      <section className="border-t border-[#d4dbc0] bg-white px-5 py-12 dark:border-white/10 dark:bg-white/[0.03]">
+      <section className="case-section border-t case-soft px-5 py-12">
         <div className="mx-auto max-w-7xl">
           <h2 className="text-2xl font-semibold">Project Team</h2>
           <div className="mt-5 flex flex-wrap gap-x-3 gap-y-2 text-sm leading-6 text-[var(--ink-muted)]">
@@ -659,7 +659,7 @@ const evidenceStats = [
 function PphCupPage() {
   return (
     <article className="pph-device-page bg-[#f7fbfa] text-[#142320] dark:bg-[#101817] dark:text-[#eef7f4]">
-      <section className="pph-hero relative overflow-hidden border-b border-[#d5e5df] bg-[linear-gradient(135deg,#f8fffc_0%,#eef8f5_52%,#f7f1f2_100%)] px-5 py-10 dark:border-white/10 dark:bg-[linear-gradient(135deg,#111d1b_0%,#132522_55%,#24191d_100%)]">
+      <section className="pph-hero relative overflow-hidden border-b border-[#d5e5df] bg-[linear-gradient(135deg,#f8fffc_0%,#eef8f5_52%,#f7f1f2_100%)] px-5 py-10 dark:bg-[linear-gradient(135deg,#111d1b_0%,#132522_55%,#24191d_100%)]">
         <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1fr_0.9fr]">
           <div>
             <Link
@@ -697,7 +697,7 @@ function PphCupPage() {
         </div>
       </section>
 
-      <section className="pph-white border-b border-[#d5e5df] bg-white px-5 py-14 dark:border-white/10 dark:bg-[#121a18]">
+      <section className="pph-white border-b border-[#d5e5df] bg-white px-5 py-14 dark:bg-[#121a18]">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.78fr_1.22fr]">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#9b3f55] dark:text-[#f3a6b7]">
@@ -719,7 +719,7 @@ function PphCupPage() {
           <div className="grid gap-4 md:grid-cols-2">
             {clinicalStats.map((item) => (
               <div
-                className="pph-card rounded border border-[#dce9e5] bg-[#f6fbf9] p-5 dark:border-white/10 dark:bg-white/[0.04]"
+                className="pph-card rounded border border-[#dce9e5] bg-[#f6fbf9] p-5"
                 key={item.label}
               >
                 <h3 className="text-3xl font-semibold text-[#12342f] dark:text-white">
@@ -739,7 +739,7 @@ function PphCupPage() {
 
       <section className="pph-soft px-5 py-16">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1.05fr_0.95fr]">
-          <div className="overflow-hidden rounded border border-[#d5e5df] bg-white shadow-xl shadow-[#0e3f38]/5 dark:border-white/10 dark:bg-[#151f1d]">
+          <div className="overflow-hidden rounded border border-[#d5e5df] bg-white shadow-xl shadow-[#0e3f38]/5 dark:bg-[#151f1d]">
             <Image
               alt="Clinical measurement system concept for the PPH Cup"
               className="h-full min-h-[360px] w-full object-cover"
@@ -847,7 +847,7 @@ function PphCupPage() {
         </div>
       </section>
 
-      <section className="border-t border-[#d5e5df] bg-white px-5 py-14 dark:border-white/10 dark:bg-[#121a18]">
+      <section className="border-t border-[#d5e5df] bg-white px-5 py-14 dark:bg-[#121a18]">
         <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-[0.9fr_1.1fr]">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#0f766e] dark:text-[#7dd3c7]">
@@ -859,7 +859,7 @@ function PphCupPage() {
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
             <a
-              className="rounded border border-[#dce9e5] bg-[#f6fbf9] p-5 transition hover:border-[#0f766e] dark:border-white/10 dark:bg-white/[0.04]"
+              className="rounded border border-[#dce9e5] bg-[#f6fbf9] p-5 transition hover:border-[#0f766e]"
               href="tel:+919823040164"
             >
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#9b3f55] dark:text-[#f3a6b7]">
@@ -870,7 +870,7 @@ function PphCupPage() {
               </p>
             </a>
             <a
-              className="rounded border border-[#dce9e5] bg-[#f6fbf9] p-5 transition hover:border-[#0f766e] dark:border-white/10 dark:bg-white/[0.04]"
+              className="rounded border border-[#dce9e5] bg-[#f6fbf9] p-5 transition hover:border-[#0f766e]"
               href="mailto:architrahul2006@gmail.com"
             >
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#9b3f55] dark:text-[#f3a6b7]">

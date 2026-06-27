@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 :root {
+  --nav-height: 72px;
   --background: #f7f3e8;
   --foreground: #202118;
   --ink-muted: #65604f;
@@ -8,7 +9,7 @@
   --line: rgba(51, 47, 34, 0.16);
   --accent: #2f6f63;
   --accent-strong: #9b3f32;
-  --nav-bg: rgba(234, 216, 167, 0.92);
+  --nav-bg: rgba(255, 252, 242, 0.9);
   --control-bg: rgba(255, 252, 242, 0.62);
   --control-active: rgba(255, 255, 255, 0.78);
   --map-surface: #ead8a7;
@@ -32,7 +33,7 @@
   --line: rgba(243, 236, 219, 0.17);
   --accent: #7eb8a8;
   --accent-strong: #d58b75;
-  --nav-bg: rgba(7, 19, 35, 0.92);
+  --nav-bg: rgba(16, 19, 15, 0.9);
   --control-bg: rgba(12, 14, 12, 0.42);
   --control-active: rgba(243, 236, 219, 0.13);
   --map-surface: #071323;
@@ -53,12 +54,15 @@
 }
 
 html {
+  min-height: 100%;
+  overscroll-behavior-y: none;
   scroll-behavior: smooth;
 }
 
 body {
   min-height: 100vh;
   margin: 0;
+  overscroll-behavior-y: none;
   background:
     radial-gradient(circle at 20% 0%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 32rem),
     linear-gradient(180deg, #fbf7ec 0%, var(--background) 100%);
@@ -102,6 +106,28 @@ select {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.project-case-page {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.project-case-page .case-section {
+  border-color: var(--line);
+}
+
+.project-case-page .case-panel {
+  background: var(--panel);
+  border-color: var(--line);
+}
+
+.project-case-page .case-soft {
+  background: color-mix(in srgb, var(--panel) 62%, transparent);
+}
+
+.project-case-page .case-accent {
+  color: var(--accent-strong);
 }
 
 .pph-device-page {
@@ -160,4 +186,37 @@ select {
 .pph-device-page .pph-deep li,
 .pph-device-page .pph-deep figcaption {
   color: #d8e8e4 !important;
+}
+
+:root[data-theme="dark"] .pph-device-page {
+  background: #101817 !important;
+  color: #eef7f4 !important;
+}
+
+:root[data-theme="dark"] .pph-device-page .pph-hero {
+  background: linear-gradient(135deg, #111d1b 0%, #132522 55%, #24191d 100%) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+:root[data-theme="dark"] .pph-device-page .pph-white,
+:root[data-theme="dark"] .pph-device-page .pph-soft {
+  background: #121a18 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+:root[data-theme="dark"] .pph-device-page .pph-card {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+:root[data-theme="dark"] .pph-device-page h1,
+:root[data-theme="dark"] .pph-device-page h2,
+:root[data-theme="dark"] .pph-device-page h3 {
+  color: #ffffff !important;
+}
+
+:root[data-theme="dark"] .pph-device-page p,
+:root[data-theme="dark"] .pph-device-page li,
+:root[data-theme="dark"] .pph-device-page figcaption {
+  color: #b7cbc5 !important;
 }
