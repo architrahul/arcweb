@@ -13,6 +13,7 @@ const navItems = [
   { href: "/projects/pph-cup", label: "PPH Cup" },
   { href: "/writing", label: "Writing" },
   { href: "/cv", label: "CV" },
+  { href: "/resume", label: "Resume" },
   { href: "/contact", label: "Contact" },
 ];
 
