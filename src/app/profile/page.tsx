@@ -17,7 +17,7 @@ const details = [
 const links = [
   { label: "GitHub", href: "https://github.com/architrahul" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/architrpatil/" },
-  { label: "Email", href: "mailto:architpatil@utexas.edu" },
+  { label: "Email", href: "/contact" },
 ];
 
 export default function ProfilePage() {
@@ -32,14 +32,15 @@ export default function ProfilePage() {
                 className="object-cover"
                 fill
                 priority
+                sizes="(min-width: 1024px) 340px, calc(100vw - 40px)"
                 src="/profile/profile_photo.png"
               />
             </div>
             <div className="border-t border-[var(--line)] p-5">
               <h1 className="text-2xl font-semibold">Archit Patil</h1>
               <p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
-                CS Turing, math, and computational biology undergraduate at UT
-                Austin.
+                CS Turing Scholar, math, and computational biology
+                undergraduate at UT Austin.
               </p>
             </div>
           </div>
@@ -67,11 +68,11 @@ export default function ProfilePage() {
           </p>
           <h2 className="mt-2 text-4xl font-semibold">Hi, I&apos;m Archit.</h2>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-[var(--ink-muted)]">
-            I&apos;m a CS Turing, math, and computational biology undergraduate
-            student at UT Austin. I like working on interdisciplinary problems:
-            molecular computing, genome algorithms, privacy-preserving ML,
-            systems projects, and medical devices that somehow made it into the
-            real world.
+            I&apos;m a CS Turing Scholar, math, and computational biology
+            undergraduate student at UT Austin. I like working on
+            interdisciplinary problems: molecular computing, genome algorithms,
+            privacy-preserving ML, systems projects, and medical devices that
+            somehow made it into the real world.
           </p>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-[var(--ink-muted)]">
             Arcweb is my personal website: a place to put my portfolio, project

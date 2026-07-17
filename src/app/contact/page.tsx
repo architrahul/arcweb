@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/Card";
+import { EmailCard } from "@/components/contact/EmailCard";
 
 const links = [
-  { label: "Email", value: "architpatil@utexas.edu", href: "mailto:architpatil@utexas.edu" },
   { label: "GitHub", value: "github.com/architrahul", href: "https://github.com/architrahul" },
   { label: "LinkedIn", value: "linkedin.com/in/architrpatil", href: "https://www.linkedin.com/in/architrpatil/" },
 ];
@@ -22,6 +22,7 @@ export default function ContactPage() {
         Email is usually the best way to reach me.
       </p>
       <div className="mt-8 grid gap-4 md:grid-cols-3">
+        <EmailCard />
         {links.map((link) => (
           <Card key={link.label}>
             <p className="text-xs font-semibold uppercase text-[var(--accent-strong)]">

@@ -19,7 +19,9 @@
   --home-top-fade: rgba(247, 243, 232, 0.74);
   --home-vignette: rgba(88, 59, 22, 0.22);
   --hover-card-bg: rgba(255, 252, 242, 0.96);
-  --tag-bg: rgba(255, 255, 255, 0.6);
+  --tag-bg: color-mix(in srgb, var(--accent) 18%, var(--panel));
+  --tag-border: color-mix(in srgb, var(--accent-strong) 34%, var(--line));
+  --tag-text: #245f82;
   --marker-bg: #fff8dd;
   --marker-border: rgba(51, 47, 34, 0.3);
   --pin-line: #5f421c;
@@ -43,7 +45,9 @@
   --home-top-fade: rgba(21, 24, 20, 0.76);
   --home-vignette: rgba(0, 0, 0, 0.5);
   --hover-card-bg: rgba(31, 34, 28, 0.96);
-  --tag-bg: rgba(243, 236, 219, 0.08);
+  --tag-bg: color-mix(in srgb, var(--accent-strong) 16%, var(--panel));
+  --tag-border: color-mix(in srgb, var(--accent-strong) 48%, var(--line));
+  --tag-text: #f0b09d;
   --marker-bg: #f3ecdb;
   --marker-border: rgba(243, 236, 219, 0.38);
   --pin-line: #f3ecdb;
@@ -126,6 +130,13 @@ select {
 
 .project-case-page .case-accent {
   color: var(--accent-strong);
+}
+
+.project-tag {
+  border-color: var(--tag-border);
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-weight: 650;
 }
 
 .research-inline-link {

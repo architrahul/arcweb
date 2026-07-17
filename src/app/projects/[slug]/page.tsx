@@ -871,7 +871,7 @@ function PphCupPage() {
             </a>
             <a
               className="rounded border border-[#dce9e5] bg-[#f6fbf9] p-5 transition hover:border-[#0f766e]"
-              href="mailto:architrahul2006@gmail.com"
+              href="mailto:architrahul2006@gmail.com?subject=PPH%20Cup%20Inquiry"
             >
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#9b3f55] dark:text-[#f3a6b7]">
                 Email

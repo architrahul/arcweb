@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import "./globals.css";
 import { SiteShell } from "@/components/layout/SiteShell";
@@ -11,6 +11,11 @@ export const metadata: Metadata = {
     shortcut: "/logo-circle.png",
     apple: "/logo-circle.png",
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 const themeScript = `
