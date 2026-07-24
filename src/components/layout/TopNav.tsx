@@ -6,13 +6,14 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { cx } from "@/lib/utils";
 import { ThemeToggle } from "@/components/layout/ThemeToggle";
+import { SHOW_WRITING_SECTION } from "@/config/sections";
 
 const navItems = [
   { href: "/profile", label: "Profile" },
   { href: "/research", label: "Research" },
   { href: "/projects", label: "Projects" },
   { href: "/projects/pph-cup", label: "PPH Cup" },
-  { href: "/writing", label: "Writing" },
+  ...(SHOW_WRITING_SECTION ? [{ href: "/writing", label: "Writing" }] : []),
   { href: "/resume", label: "Resume/CV" },
   { href: "/contact", label: "Contact" },
 ];

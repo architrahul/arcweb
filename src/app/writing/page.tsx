@@ -1,4 +1,6 @@
+import { notFound } from "next/navigation";
 import { Card } from "@/components/ui/Card";
+import { SHOW_WRITING_SECTION } from "@/config/sections";
 
 const categories = [
   "Research notes",
@@ -9,6 +11,10 @@ const categories = [
 ];
 
 export default function WritingPage() {
+  if (!SHOW_WRITING_SECTION) {
+    notFound();
+  }
+
   return (
     <section className="mx-auto max-w-5xl px-5 py-12">
       <h1 className="text-3xl font-semibold">Writing</h1>
