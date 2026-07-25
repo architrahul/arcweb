@@ -32,6 +32,18 @@ export default async function ProjectPage({
     return <PcrAutomationPage />;
   }
 
+  if (project.slug === "pareto-optimal-polymer-enumeration") {
+    return <ParetoPolymerPage />;
+  }
+
+  if (project.slug === "operating-systems-implementation") {
+    return <OperatingSystemsPage />;
+  }
+
+  if (project.slug === "rare-disease-prediction") {
+    return <RareDiseasePredictionPage />;
+  }
+
   if (project.slug === "game-boy-emulator") {
     return <GameBoyEmulatorPage />;
   }
@@ -129,6 +141,717 @@ function ProjectSection({ title, body }: { title: string; body: string }) {
       <h2 className="text-lg font-semibold">{title}</h2>
       <p className="mt-3 text-sm leading-6 text-[var(--ink-muted)]">{body}</p>
     </Card>
+  );
+}
+
+const paretoAuthors = ["Archit Patil", "Minki Hhan", "David Soloveichik"];
+
+const paretoHighlights = [
+  {
+    label: "Thermodynamic filter",
+    value:
+      "Pareto-suboptimal polymers can split into non-interacting parts without losing bonds, so entropy favors the split.",
+  },
+  {
+    label: "Finite characterization",
+    value:
+      "The Pareto-optimal set is exactly captured by projecting a Hilbert basis from an augmented neutralized system.",
+  },
+  {
+    label: "Scalable enumeration",
+    value:
+      "Support bounds and covering designs replace one hard global computation with fewer tractable subsystem computations.",
+  },
+  {
+    label: "Empirical result",
+    value:
+      "Benchmarks show order-of-magnitude speedups while preserving nearly all equilibrium-relevant candidates.",
+  },
+];
+
+function ParetoPolymerPage() {
+  return (
+    <article className="project-case-page overflow-x-hidden">
+      <section className="case-section border-b px-5 py-10">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1fr_0.82fr]">
+          <div className="max-w-3xl">
+            <Link
+              className="text-sm text-[var(--ink-muted)] transition hover:text-[var(--foreground)]"
+              href="/projects"
+            >
+              Back to projects
+            </Link>
+            <p className="mt-10 text-xs font-semibold uppercase tracking-[0.2em] case-accent">
+              Completed Research Project · Accepted At DNA32
+            </p>
+            <h1 className="mt-4 break-words text-4xl font-semibold leading-tight md:text-6xl">
+              Scalable Enumeration of Pareto-optimal Polymers
+            </h1>
+            <p className="mt-5 max-w-2xl break-words text-lg leading-8 text-[var(--ink-muted)]">
+              A first-authored DNA molecular programming paper on turning an
+              infinite candidate space of molecular complexes into a finite,
+              thermodynamically justified, and computationally usable set for
+              equilibrium analysis.
+            </p>
+            <div className="mt-7 flex flex-wrap gap-3 text-sm">
+              <RepositoryLink href="/pareto-optimal-polymers/abstract.pdf">
+                View abstract PDF
+              </RepositoryLink>
+              <RepositoryLink href="https://github.com/architrahul/Pareto-polymer-enumerator">
+                Code and data
+              </RepositoryLink>
+            </div>
+          </div>
+
+          <div className="min-w-0 overflow-hidden rounded border case-panel shadow-xl shadow-black/10">
+            <div className="border-b border-[var(--line)] p-3">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] case-accent">
+                One-page abstract
+              </p>
+            </div>
+            <div className="relative mx-auto aspect-[8.5/11] max-h-[70vh] w-full max-w-[520px] bg-white">
+              <Image
+                alt="Full one-page abstract for the Pareto-optimal polymers project"
+                className="object-contain"
+                fill
+                priority
+                sizes="(min-width: 1024px) 38vw, calc(100vw - 40px)"
+                src="/pareto-optimal-polymers/abstract-preview.png"
+              />
+            </div>
+            <div className="grid gap-3 p-5 sm:grid-cols-3">
+              {[
+                ["Finite", "infinite complexes to finite candidates"],
+                ["Algebraic", "Hilbert-basis characterization"],
+                ["Fast", "covering-design enumeration"],
+              ].map(([label, value]) => (
+                <div className="border-t border-[var(--line)] pt-3" key={label}>
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] case-accent">
+                    {label}
+                  </p>
+                  <p className="mt-1 text-sm leading-5 text-[var(--ink-muted)]">
+                    {value}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-5 py-12">
+        <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-4">
+          {[
+            ["Venue", "DNA32 conference"],
+            ["Status", "Accepted; publication forthcoming"],
+            ["Area", "DNA computing and molecular programming"],
+            ["Authors", paretoAuthors.join(", ")],
+          ].map(([label, value]) => (
+            <div className="rounded border case-panel p-5" key={label}>
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] case-accent">
+                {label}
+              </p>
+              <p className="mt-2 text-sm font-medium leading-6">{value}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="px-5 pb-12">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.72fr_1.28fr]">
+          <div>
+            <h2 className="text-2xl font-semibold">Primary Materials</h2>
+            <div className="mt-5 grid gap-3 text-sm">
+              <RepositoryLink href="/pareto-optimal-polymers/abstract.pdf">
+                One-page abstract PDF
+              </RepositoryLink>
+              <RepositoryLink href="https://github.com/architrahul/Pareto-polymer-enumerator">
+                GitHub repository
+              </RepositoryLink>
+            </div>
+
+            <h2 className="mt-10 text-2xl font-semibold">Technical Areas</h2>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {[
+                "DNA computing",
+                "Molecular programming",
+                "Algorithmic enumeration",
+                "Computational algebra",
+                "Equilibrium analysis",
+              ].map((tag) => (
+                <span className="project-tag rounded-sm border px-3 py-1 text-sm" key={tag}>
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded border case-panel p-6">
+            <h2 className="text-2xl font-semibold">Project Summary</h2>
+            <div className="mt-4 grid gap-4 leading-8 text-[var(--ink-muted)]">
+              <p>
+                Engineered DNA systems are now large enough that verification is
+                a computational problem in its own right. Equilibrium solvers
+                such as COFFEE need a finite list of candidate polymers, but in
+                a domain-monomer system even a finite set of monomer types can
+                generate infinitely many possible complexes.
+              </p>
+              <p>
+                This work defines Pareto-optimal polymers as the complexes that
+                cannot be split into independent parts without losing potential
+                bonding. That definition gives a thermodynamic reason to discard
+                suboptimal candidates: the split has the same enthalpy and more
+                entropy, so it is favored.
+              </p>
+              <p>
+                The paper then proves that the remaining candidate set is finite
+                and characterizes it with a Hilbert basis computation. To make
+                the characterization practical, the algorithm restricts the
+                number of distinct monomer types in a polymer and uses covering
+                designs to reduce the number of Hilbert-basis computations.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="case-section border-y case-soft px-5 py-12">
+        <div className="mx-auto max-w-7xl">
+          <h2 className="text-2xl font-semibold">Core Contributions</h2>
+          <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            {paretoHighlights.map((item) => (
+              <div className="rounded border case-panel p-5" key={item.label}>
+                <h3 className="text-lg font-semibold">{item.label}</h3>
+                <p className="mt-3 text-sm leading-6 text-[var(--ink-muted)]">
+                  {item.value}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-5 py-12">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.78fr_1.22fr]">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] case-accent">
+              Why It Matters
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold">
+              Finiteness is not enough. The finite set has to be computable.
+            </h2>
+            <p className="mt-4 leading-7 text-[var(--ink-muted)]">
+              Direct Hilbert-basis computation can become impractical even on
+              moderate DNA molecular programming systems. The covering-design
+              method trades one large computation for a structured family of
+              smaller computations, while still retaining the support-bounded
+              Pareto-optimal polymers needed for downstream concentration and
+              leakage analysis.
+            </p>
+          </div>
+          <dl>
+            <MetadataRow label="Model">
+              Geometry-free domain-monomer systems generalizing Thermodynamic
+              Binding Networks to an unsaturated setting.
+            </MetadataRow>
+            <MetadataRow label="Key object">
+              Pareto-optimal polymers, the candidates that cannot be split into
+              non-interacting parts without losing bonds.
+            </MetadataRow>
+            <MetadataRow label="Algebraic result">
+              Projection of a Hilbert basis from an augmented system with unit
+              monomers that neutralize dangling domains.
+            </MetadataRow>
+            <MetadataRow label="Scalability idea">
+              Bound the number of distinct monomer types per polymer and use
+              covering designs to cover all smaller supports efficiently.
+            </MetadataRow>
+          </dl>
+        </div>
+      </section>
+
+      <section className="case-section border-t case-soft px-5 py-12">
+        <div className="mx-auto max-w-7xl">
+          <h2 className="text-2xl font-semibold">Abstract PDF</h2>
+          <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--ink-muted)]">
+            The accepted one-page abstract is embedded below and is also
+            available as a direct PDF.
+          </p>
+          <div className="mt-5 overflow-hidden rounded border case-panel">
+            <iframe
+              className="h-[680px] w-full"
+              src="/pareto-optimal-polymers/abstract.pdf#view=FitH"
+              title="Pareto-optimal polymers abstract PDF"
+            />
+          </div>
+        </div>
+      </section>
+    </article>
+  );
+}
+
+const osTeam = ["Archit Patil", "Brian Zhang", "Brian Qu", "Rohan Dugad"];
+
+const osCoreSequence = [
+  "Cooperative scheduling",
+  "Preemptive scheduling",
+  "Shared pointers",
+  "Filesystems",
+  "Virtual memory",
+  "User mode and syscalls",
+  "Networking",
+  "Graphics subsystem",
+];
+
+const osGraphicsHighlights = [
+  {
+    title: "Framebuffer architecture",
+    text:
+      "Implemented display-facing buffers, MMIO-backed graphics output, double buffering, and VBlank-aware swaps to avoid tearing.",
+  },
+  {
+    title: "Graphics modes",
+    text:
+      "Supported text mode, VGA, and VBE modes across 8/16/32-bit rendering paths with palette and grayscale handling.",
+  },
+  {
+    title: "Media viewers",
+    text:
+      "Built graphics paths for raw images, PDF scrolling, GIFs, and video playback under kernel resource constraints.",
+  },
+  {
+    title: "Graphics syscalls",
+    text:
+      "Exposed graphics I/O through syscall interfaces so user programs could drive visual output from the OS.",
+  },
+];
+
+function OperatingSystemsPage() {
+  return (
+    <article className="project-case-page overflow-x-hidden">
+      <section className="case-section border-b px-5 py-10">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[0.94fr_1.06fr]">
+          <div className="max-w-3xl">
+            <Link
+              className="text-sm text-[var(--ink-muted)] transition hover:text-[var(--foreground)]"
+              href="/projects"
+            >
+              Back to projects
+            </Link>
+            <p className="mt-10 text-xs font-semibold uppercase tracking-[0.2em] case-accent">
+              Completed Systems Project · C++ And Assembly
+            </p>
+            <h1 className="mt-4 break-words text-4xl font-semibold leading-tight md:text-6xl">
+              Operating Systems Implementation
+            </h1>
+            <p className="mt-5 max-w-2xl text-lg leading-8 text-[var(--ink-muted)]">
+              A semester-long kernel implementation sequence, ending with a
+              four-person graphics subsystem for an OS capable of running
+              multiplayer DOOM.
+            </p>
+            <div className="mt-7 flex flex-wrap gap-3 text-sm">
+              <RepositoryLink href="/os-implementation/presentation.pdf">
+                View final presentation
+              </RepositoryLink>
+            </div>
+          </div>
+
+          <div className="overflow-hidden rounded border case-panel shadow-xl shadow-black/10">
+            <div className="aspect-video bg-[#17202d]">
+              <iframe
+                className="h-full w-full"
+                src="/os-implementation/presentation.pdf#view=FitH"
+                title="Graphics I/O final project presentation"
+              />
+            </div>
+            <div className="grid gap-3 p-5 sm:grid-cols-3">
+              {[
+                ["Kernel", "multi-core preemptive scheduling"],
+                ["Isolation", "VM, user mode, 25+ syscalls"],
+                ["Graphics", "framebuffer, VGA, VBE, media"],
+              ].map(([label, value]) => (
+                <div className="border-t border-[var(--line)] pt-3" key={label}>
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] case-accent">
+                    {label}
+                  </p>
+                  <p className="mt-1 text-sm leading-5 text-[var(--ink-muted)]">
+                    {value}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-5 py-12">
+        <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-4">
+          {[
+            ["Course arc", "Aug 2025 - Dec 2025"],
+            ["Stack", "C++, Assembly, QEMU"],
+            ["Final team", osTeam.join(", ")],
+            ["Demo target", "Graphics subsystem for multiplayer DOOM"],
+          ].map(([label, value]) => (
+            <div className="rounded border case-panel p-5" key={label}>
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] case-accent">
+                {label}
+              </p>
+              <p className="mt-2 text-sm font-medium leading-6">{value}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="px-5 pb-12">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.72fr_1.28fr]">
+          <div>
+            <h2 className="text-2xl font-semibold">Implementation Sequence</h2>
+            <div className="mt-5 grid gap-2">
+              {osCoreSequence.map((item, index) => (
+                <div
+                  className="grid grid-cols-[2.25rem_1fr] items-center gap-3 rounded border case-panel px-3 py-2 text-sm"
+                  key={item}
+                >
+                  <span className="flex size-7 items-center justify-center rounded-full border border-[var(--line)] text-xs font-semibold case-accent">
+                    {index + 1}
+                  </span>
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded border case-panel p-6">
+            <h2 className="text-2xl font-semibold">Project Summary</h2>
+            <div className="mt-4 grid gap-4 leading-8 text-[var(--ink-muted)]">
+              <p>
+                The project built up an operating system in layers: scheduling,
+                shared ownership primitives, filesystems, virtual memory, user
+                programs, syscalls, and networking. The kernel work emphasized
+                synchronization, memory safety, and process isolation in a
+                multi-core setting, including race-condition and memory-leak
+                fixes across 1K concurrent threads.
+              </p>
+              <p>
+                For the final project, a smaller team implemented the graphics
+                subsystem. The work centered on framebuffer architecture,
+                double buffering, text/VGA/VBE graphics modes, palette
+                conversion, graphics-specific syscalls, and media output paths.
+              </p>
+              <p>
+                The result was a completed OS implementation project with a
+                graphics stack expressive enough to support a multiplayer DOOM
+                demo, built on top of the earlier kernel, VM, filesystem,
+                syscall, and networking foundations.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="case-section border-y case-soft px-5 py-12">
+        <div className="mx-auto max-w-7xl">
+          <h2 className="text-2xl font-semibold">Graphics Subsystem</h2>
+          <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            {osGraphicsHighlights.map((item) => (
+              <div className="rounded border case-panel p-5" key={item.title}>
+                <h3 className="text-lg font-semibold">{item.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-[var(--ink-muted)]">
+                  {item.text}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-5 py-12">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.78fr_1.22fr]">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] case-accent">
+              Kernel Work
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold">
+              From scheduler mechanics to user-facing graphics.
+            </h2>
+            <p className="mt-4 leading-7 text-[var(--ink-muted)]">
+              The OS was built as a sequence of increasingly realistic kernel
+              components. The final graphics work was interesting because it
+              had to sit on top of earlier abstractions rather than live as a
+              standalone demo.
+            </p>
+          </div>
+          <dl>
+            <MetadataRow label="Scheduling">
+              Cooperative scheduling, preemptive scheduling, and multi-core
+              execution with attention to race conditions across 1K concurrent
+              threads.
+            </MetadataRow>
+            <MetadataRow label="Memory">
+              Shared pointer infrastructure, virtual memory, and process
+              isolation for user programs.
+            </MetadataRow>
+            <MetadataRow label="System calls">
+              More than 25 system calls connecting user-mode programs to kernel
+              services.
+            </MetadataRow>
+            <MetadataRow label="Graphics I/O">
+              Framebuffer-backed rendering through text mode, VGA, VBE, image
+              formats, PDF scrolling, GIFs, and video playback.
+            </MetadataRow>
+          </dl>
+        </div>
+      </section>
+
+      <section className="case-section border-t case-soft px-5 py-12">
+        <div className="mx-auto max-w-7xl">
+          <h2 className="text-2xl font-semibold">Final Presentation</h2>
+          <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--ink-muted)]">
+            The final presentation for the graphics subsystem is embedded below
+            and available as a direct PDF.
+          </p>
+          <div className="mt-5 overflow-hidden rounded border case-panel">
+            <iframe
+              className="h-[680px] w-full"
+              src="/os-implementation/presentation.pdf#view=FitH"
+              title="Operating systems implementation final presentation"
+            />
+          </div>
+        </div>
+      </section>
+    </article>
+  );
+}
+
+const rareDiseaseHighlights = [
+  {
+    title: "Clinical-note dataset",
+    text:
+      "Processed 1M+ notes from MIMIC-IV and grouped pre-diagnosis notes into patient-level text blocks for modeling.",
+  },
+  {
+    title: "Rare-disease mapping",
+    text:
+      "Used Orphanet rare-disease metadata and exact ICD-10 to ICD-9 mappings to construct a structured disease cohort.",
+  },
+  {
+    title: "BERT pipeline",
+    text:
+      "Fine-tuned ClinicalBERT with sliding 512-token windows, focal loss, and consistent train/validation/test splits.",
+  },
+  {
+    title: "Interpretability",
+    text:
+      "Built attention-based note highlighting to surface the words and phrases influencing rare-disease predictions.",
+  },
+];
+
+const rareDiseaseWorkflow = [
+  "Filter Orphanet diseases with exact ICD mappings",
+  "Find first diagnosis dates from MIMIC-IV ICD records",
+  "Keep only clinical notes before diagnosis to reduce leakage",
+  "Match controls by age, gender, and race",
+  "Fine-tune ClinicalBERT-style models over note windows",
+  "Evaluate AUC and inspect highlighted evidence tokens",
+];
+
+function RareDiseasePredictionPage() {
+  return (
+    <article className="project-case-page overflow-x-hidden">
+      <section className="case-section border-b px-5 py-10">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[0.94fr_1.06fr]">
+          <div className="max-w-3xl">
+            <Link
+              className="text-sm text-[var(--ink-muted)] transition hover:text-[var(--foreground)]"
+              href="/projects"
+            >
+              Back to projects
+            </Link>
+            <p className="mt-10 text-xs font-semibold uppercase tracking-[0.2em] case-accent">
+              Completed Biomedical ML Research · Pejaver Lab
+            </p>
+            <h1 className="mt-4 break-words text-4xl font-semibold leading-tight md:text-6xl">
+              Rare Disease Prediction From Clinical Notes
+            </h1>
+            <p className="mt-5 max-w-2xl text-lg leading-8 text-[var(--ink-muted)]">
+              A Mount Sinai research project using clinical notes, rare-disease
+              ontology mappings, and BERT-based models to identify patients
+              with rare diseases from MIMIC-IV.
+            </p>
+            <div className="mt-7 flex flex-wrap gap-3 text-sm">
+              <RepositoryLink href="https://github.com/architrahul/rare-disease-prediction">
+                GitHub repository
+              </RepositoryLink>
+              <RepositoryLink href="/rare-disease-prediction/presentation.pdf">
+                View presentation
+              </RepositoryLink>
+            </div>
+          </div>
+
+          <div className="overflow-hidden rounded border case-panel shadow-xl shadow-black/10">
+            <div className="aspect-video bg-[#9ec8f1]">
+              <iframe
+                className="h-full w-full"
+                src="/rare-disease-prediction/presentation.pdf#view=FitH"
+                title="Rare disease prediction final presentation"
+              />
+            </div>
+            <div className="grid gap-3 p-5 sm:grid-cols-3">
+              {[
+                ["Data", "1M+ clinical notes"],
+                ["Model", "ClinicalBERT pipeline"],
+                ["Result", "about 85% AUC"],
+              ].map(([label, value]) => (
+                <div className="border-t border-[var(--line)] pt-3" key={label}>
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] case-accent">
+                    {label}
+                  </p>
+                  <p className="mt-1 text-sm leading-5 text-[var(--ink-muted)]">
+                    {value}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-5 py-12">
+        <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-4">
+          {[
+            ["Lab", "Pejaver Lab, Icahn School of Medicine at Mount Sinai"],
+            ["PI", "Professor Vikas Pejaver"],
+            ["Mentor", "Mohammed Ghouse Syed"],
+            ["Dates", "May 2025 - Aug 2025"],
+          ].map(([label, value]) => (
+            <div className="rounded border case-panel p-5" key={label}>
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] case-accent">
+                {label}
+              </p>
+              <p className="mt-2 text-sm font-medium leading-6">{value}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="px-5 pb-12">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.72fr_1.28fr]">
+          <div>
+            <h2 className="text-2xl font-semibold">Pipeline</h2>
+            <div className="mt-5 grid gap-2">
+              {rareDiseaseWorkflow.map((item, index) => (
+                <div
+                  className="grid grid-cols-[2.25rem_1fr] items-center gap-3 rounded border case-panel px-3 py-2 text-sm"
+                  key={item}
+                >
+                  <span className="flex size-7 items-center justify-center rounded-full border border-[var(--line)] text-xs font-semibold case-accent">
+                    {index + 1}
+                  </span>
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded border case-panel p-6">
+            <h2 className="text-2xl font-semibold">Project Summary</h2>
+            <div className="mt-4 grid gap-4 leading-8 text-[var(--ink-muted)]">
+              <p>
+                Rare diseases are difficult to detect early because useful
+                evidence is often scattered through long, messy clinical notes.
+                The project turned unstructured MIMIC-IV notes into a structured
+                patient-level dataset by using Orphanet disease information,
+                ICD mappings, diagnosis timing, and matched controls.
+              </p>
+              <p>
+                I filtered notes to include only text written before the rare
+                disease diagnosis, then fine-tuned ClinicalBERT-style models
+                using overlapping token windows to handle long notes. The final
+                BERT-based pipeline delivered roughly 85% AUC in identifying
+                rare-disease patients from MIMIC-derived experiments.
+              </p>
+              <p>
+                Beyond prediction, the project explored interpretability:
+                extracting high-attention tokens, mapping them back to words in
+                notes, and producing highlighted evidence lists that a clinical
+                collaborator could inspect.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="case-section border-y case-soft px-5 py-12">
+        <div className="mx-auto max-w-7xl">
+          <h2 className="text-2xl font-semibold">Core Components</h2>
+          <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            {rareDiseaseHighlights.map((item) => (
+              <div className="rounded border case-panel p-5" key={item.title}>
+                <h3 className="text-lg font-semibold">{item.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-[var(--ink-muted)]">
+                  {item.text}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-5 py-12">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.78fr_1.22fr]">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] case-accent">
+              Clinical NLP
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold">
+              The hard part was making noisy notes usable without leaking the
+              diagnosis.
+            </h2>
+            <p className="mt-4 leading-7 text-[var(--ink-muted)]">
+              The project was not just a model fine-tuning exercise. A large
+              part of the work was cohort definition: mapping rare diseases,
+              choosing exact ICD matches, identifying the first diagnosis date,
+              and ensuring the model only saw notes from before that point.
+            </p>
+          </div>
+          <dl>
+            <MetadataRow label="Data source">
+              MIMIC-IV clinical notes and diagnosis records, with patient-level
+              aggregation before first diagnosis.
+            </MetadataRow>
+            <MetadataRow label="Disease mapping">
+              Orphanet rare-disease metadata, exact ICD-10 mappings, and exact
+              ICD-10 to ICD-9 General Equivalence Mappings.
+            </MetadataRow>
+            <MetadataRow label="Modeling">
+              ClinicalBERT fine-tuning with 512-token sliding windows, 256-token
+              stride, focal loss, and early stopping.
+            </MetadataRow>
+            <MetadataRow label="Evaluation">
+              Consistent splits and cross-validation experiments, with AUC used
+              as the main discrimination metric.
+            </MetadataRow>
+          </dl>
+        </div>
+      </section>
+
+      <section className="case-section border-t case-soft px-5 py-12">
+        <div className="mx-auto max-w-7xl">
+          <h2 className="text-2xl font-semibold">Presentation</h2>
+          <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--ink-muted)]">
+            The project presentation is embedded below and available as a
+            direct PDF.
+          </p>
+          <div className="mt-5 overflow-hidden rounded border case-panel">
+            <iframe
+              className="h-[680px] w-full"
+              src="/rare-disease-prediction/presentation.pdf#view=FitH"
+              title="Rare disease prediction presentation"
+            />
+          </div>
+        </div>
+      </section>
+    </article>
   );
 }
 
@@ -689,7 +1412,7 @@ function PphCupPage() {
                 className="h-full w-auto object-contain drop-shadow-2xl"
                 height={1906}
                 priority
-                src="/pph-cup/device-render-reference-smooth.png"
+                src="/pph-cup/pph-cup-product.png"
                 width={825}
               />
             </div>
@@ -744,7 +1467,7 @@ function PphCupPage() {
               alt="Clinical measurement system concept for the PPH Cup"
               className="h-full min-h-[360px] w-full object-cover"
               height={929}
-              src="/pph-cup/measurement-system-bottom-connected.png"
+              src="/pph-cup/pph-cup-working-model.png"
               width={1692}
             />
           </div>

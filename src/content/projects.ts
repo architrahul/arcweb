@@ -20,81 +20,77 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "long-inverted-repeat-detection",
-    title: "Long Inverted Repeat Detection",
-    description: "Detecting large imperfect inverted repeats with long spacers.",
-    status: "Active",
-    tags: ["Computational Biology", "Algorithms", "Genomics"],
-    position: { x: 24, y: 36 },
-    summary:
-      "An algorithmic research project focused on identifying long inverted repeat structures in genomic sequences.",
-    problem:
-      "Large imperfect repeats are difficult to detect efficiently when spacer lengths grow and mutations accumulate.",
-    motivation:
-      "Better repeat detection can support biological discovery in regions where conventional local matching is too brittle.",
-    approach:
-      "Develop targeted sequence algorithms, benchmark against controlled cases, and evaluate behavior on realistic genomic inputs.",
-    results:
-      "The first site version reserves this page for methods, benchmarks, artifacts, and result summaries.",
-    timeline: ["Prototype algorithm", "Benchmark harness", "Research writeup"],
-    related: ["rna-interaction-energy-distribution"],
-  },
-  {
     slug: "pareto-optimal-polymer-enumeration",
     title: "Pareto-Optimal Polymer Enumeration",
-    description: "Exploring polymer candidates through multi-objective enumeration.",
-    status: "Exploratory",
-    tags: ["Enumeration", "Optimization", "Research"],
+    description:
+      "A DNA32-accepted algorithmic molecular programming paper on finite, scalable candidate enumeration for equilibrium analysis.",
+    status: "Completed",
+    tags: ["DNA Computing", "Molecular Programming", "Algorithms"],
     position: { x: 42, y: 28 },
     summary:
-      "A technical exploration of polymer candidates organized around tradeoffs rather than a single score.",
+      "A first-authored DNA32 conference paper on scalable enumeration of Pareto-optimal polymers in domain-monomer systems.",
     problem:
-      "Candidate spaces can grow quickly, making it hard to understand which designs are meaningfully non-dominated.",
+      "A finite set of DNA monomer types can generate infinitely many molecular complexes, but equilibrium solvers need a finite candidate list.",
     motivation:
-      "Pareto views can make search results more interpretable for scientific and engineering design work.",
+      "Large engineered DNA systems need equilibrium verification, especially to understand intended products and leakage pathways.",
     approach:
-      "Represent candidates with comparable objectives, enumerate feasible structures, and surface non-dominated sets.",
-    results: "Initial content will collect notes, code artifacts, and visual summaries.",
-    timeline: ["Define objectives", "Build enumerator", "Visualize frontier"],
+      "Use thermodynamically justified Pareto optimality, characterize the finite candidate set through Hilbert bases, and scale enumeration with support bounds and covering designs.",
+    results:
+      "Accepted at DNA32, with order-of-magnitude speedups over direct Hilbert-basis computation while recovering nearly all equilibrium-relevant polymers.",
+    artifacts: [
+      {
+        label: "One-page abstract",
+        href: "/pareto-optimal-polymers/abstract.pdf",
+      },
+      {
+        label: "Code and data repository",
+        href: "https://github.com/architrahul/Pareto-polymer-enumerator",
+      },
+    ],
+    timeline: [
+      "Soloveichik Lab research project",
+      "Hilbert-basis characterization",
+      "Support-bounded covering-design algorithm",
+      "DNA32 conference acceptance",
+      "Publication forthcoming",
+    ],
     related: ["privacy-preserving-genomics"],
   },
   {
-    slug: "privacy-preserving-genomics",
-    title: "Privacy-Preserving Genomics",
-    description: "Secure computation ideas for genomic analysis workflows.",
-    status: "Active",
-    tags: ["Privacy", "Genomics", "Cryptography"],
-    position: { x: 64, y: 34 },
+    slug: "rare-disease-prediction",
+    title: "Rare Disease Prediction From Clinical Notes",
+    description:
+      "A Mount Sinai Pejaver Lab project using clinical notes and BERT-based models to identify rare-disease patients.",
+    status: "Completed",
+    tags: ["Biomedical ML", "Clinical NLP", "Rare Disease"],
+    position: { x: 34, y: 47 },
     summary:
-      "A research direction around genomic computation where sensitive inputs remain protected.",
+      "An undergraduate research project with Professor Vikas Pejaver and mentor Mohammed Ghouse Syed on rare-disease prediction from unstructured MIMIC-IV clinical notes.",
     problem:
-      "Genomic data is deeply identifying, but useful analysis often requires shared computation across institutions.",
+      "Rare diseases are often diagnosed years late, while useful early signals are scattered across long, noisy, inconsistent clinical notes.",
     motivation:
-      "Privacy-preserving methods can make collaboration safer without giving up scientific utility.",
+      "A model that can flag likely rare-disease patients from pre-diagnosis notes could support downstream analysis, cohort construction, and earlier clinical investigation.",
     approach:
-      "Study secure computation primitives, model realistic genomic tasks, and measure practical tradeoffs.",
-    results: "This page will become the home for notes, experiments, and references.",
-    timeline: ["Literature map", "Prototype workloads", "Performance notes"],
-    related: ["long-inverted-repeat-detection"],
-  },
-  {
-    slug: "rna-interaction-energy-distribution",
-    title: "RNA Interaction Energy Distribution",
-    description: "Modeling distributions of RNA interaction energies.",
-    status: "Prototype",
-    tags: ["RNA", "Statistics", "Biophysics"],
-    position: { x: 30, y: 58 },
-    summary:
-      "A computational biology project studying how interaction energies vary across RNA sequence contexts.",
-    problem:
-      "Energy landscapes can be hard to summarize when many candidate interactions are plausible.",
-    motivation:
-      "Distributional views can reveal structure that single best-hit summaries miss.",
-    approach:
-      "Combine sequence sampling, energy evaluation, and statistical summaries of interaction behavior.",
-    results: "Reserved for early plots, methodology, and validation notes.",
-    timeline: ["Sampling setup", "Energy calculations", "Distribution analysis"],
-    related: ["long-inverted-repeat-detection"],
+      "Processed 1M+ clinical notes, mapped rare diseases through Orphanet and ICD codes, built matched patient/control cohorts, and fine-tuned ClinicalBERT-style models with sliding windows over long notes.",
+    results:
+      "Delivered a BERT-based rare-disease prediction pipeline reaching about 85% AUC on MIMIC-derived experiments, with attention-style highlighting for interpretability.",
+    artifacts: [
+      {
+        label: "GitHub repository",
+        href: "https://github.com/architrahul/rare-disease-prediction",
+      },
+      {
+        label: "Final presentation PDF",
+        href: "/rare-disease-prediction/presentation.pdf",
+      },
+    ],
+    timeline: [
+      "Undergraduate researcher, May 2025 - Aug 2025",
+      "MIMIC-IV and Orphanet data preparation",
+      "ClinicalBERT fine-tuning and model comparison",
+      "Interpretability and note-highlighting experiments",
+    ],
+    related: ["privacy-preserving-genomics"],
   },
   {
     slug: "game-boy-emulator",
@@ -131,7 +127,41 @@ export const projects: Project[] = [
       "SDL2 rendering and keyboard controls",
       "April 2025 project completion",
     ],
-    related: ["coroutine-implementations", "verilog-pipelining"],
+    related: ["operating-systems-implementation"],
+  },
+  {
+    slug: "operating-systems-implementation",
+    title: "Operating Systems Implementation",
+    description:
+      "A C++ and assembly kernel project culminating in a graphics subsystem capable of running multiplayer DOOM.",
+    status: "Completed",
+    tags: ["Operating Systems", "Kernel", "Graphics"],
+    position: { x: 68, y: 68 },
+    summary:
+      "A semester-long operating systems implementation sequence covering scheduling, memory, filesystems, syscalls, networking, and a final graphics subsystem.",
+    problem:
+      "A real operating system has to coordinate CPU scheduling, memory isolation, I/O, files, system calls, and device-facing subsystems without race conditions or leaks.",
+    motivation:
+      "Building the kernel incrementally made core OS abstractions concrete, from preemption and process isolation to graphics I/O and user-mode interaction.",
+    approach:
+      "Implemented kernel components in C++ and assembly across staged projects, then led a 4-person final-project team building the graphics subsystem.",
+    results:
+      "Built a multi-core preemptive kernel, supported virtual memory, filesystems, user programs, 25+ syscalls, networking, and graphics modes used by a multiplayer DOOM demo.",
+    artifacts: [
+      {
+        label: "Final presentation PDF",
+        href: "/os-implementation/presentation.pdf",
+      },
+    ],
+    timeline: [
+      "Cooperative scheduling",
+      "Preemptive scheduling",
+      "Shared pointers and memory safety",
+      "Filesystems and virtual memory",
+      "User mode and system calls",
+      "Networking and graphics subsystem",
+    ],
+    related: ["game-boy-emulator"],
   },
   {
     slug: "pph-cup",
@@ -206,41 +236,61 @@ export const projects: Project[] = [
     related: [],
   },
   {
-    slug: "coroutine-implementations",
-    title: "Coroutine Implementations",
-    description: "Exploring control flow, scheduling, and language runtime mechanics.",
-    status: "Prototype",
-    tags: ["Programming Languages", "Runtime", "Systems"],
-    position: { x: 70, y: 44 },
+    slug: "long-inverted-repeat-detection",
+    title: "Long Inverted Repeat Detection",
+    description: "Detecting large imperfect inverted repeats with long spacers.",
+    status: "Active",
+    tags: ["Computational Biology", "Algorithms", "Genomics"],
+    position: { x: 24, y: 36 },
     summary:
-      "A systems and programming languages project about how coroutine abstractions can be implemented.",
+      "An algorithmic research project focused on identifying long inverted repeat structures in genomic sequences.",
     problem:
-      "High-level coroutine syntax hides subtle runtime choices about suspension, scheduling, and state.",
+      "Large imperfect repeats are difficult to detect efficiently when spacer lengths grow and mutations accumulate.",
     motivation:
-      "Understanding those choices makes async systems easier to reason about and debug.",
+      "Better repeat detection can support biological discovery in regions where conventional local matching is too brittle.",
     approach:
-      "Build small implementations that expose the mechanics behind coroutine control flow.",
-    results: "Reserved for diagrams, notes, and implementation comparisons.",
-    timeline: ["Minimal runtime", "Scheduler examples", "Writeup"],
-    related: ["game-boy-emulator", "verilog-pipelining"],
+      "Develop targeted sequence algorithms, benchmark against controlled cases, and evaluate behavior on realistic genomic inputs.",
+    results:
+      "The first site version reserves this page for methods, benchmarks, artifacts, and result summaries.",
+    timeline: ["Prototype algorithm", "Benchmark harness", "Research writeup"],
+    related: ["rna-interaction-energy-distribution"],
   },
   {
-    slug: "verilog-pipelining",
-    title: "Verilog Pipelining",
-    description: "Hardware design experiments with pipelined digital logic.",
-    status: "Completed",
-    tags: ["Hardware", "Verilog", "Architecture"],
-    position: { x: 83, y: 34 },
+    slug: "privacy-preserving-genomics",
+    title: "Privacy-Preserving Genomics",
+    description: "Secure computation ideas for genomic analysis workflows.",
+    status: "Active",
+    tags: ["Privacy", "Genomics", "Cryptography"],
+    position: { x: 64, y: 34 },
     summary:
-      "A hardware design project centered on timing, pipeline stages, and digital architecture tradeoffs.",
+      "A research direction around genomic computation where sensitive inputs remain protected.",
     problem:
-      "Pipelined systems improve throughput but introduce hazards, timing constraints, and design complexity.",
+      "Genomic data is deeply identifying, but useful analysis often requires shared computation across institutions.",
     motivation:
-      "Hardware work makes abstraction costs concrete and sharpens systems intuition.",
+      "Privacy-preserving methods can make collaboration safer without giving up scientific utility.",
     approach:
-      "Design modules in Verilog, reason about stage boundaries, and test behavior with simulations.",
-    results: "This page will hold design notes and representative modules.",
-    timeline: ["Module design", "Pipeline stages", "Simulation"],
-    related: ["game-boy-emulator", "coroutine-implementations"],
+      "Study secure computation primitives, model realistic genomic tasks, and measure practical tradeoffs.",
+    results: "This page will become the home for notes, experiments, and references.",
+    timeline: ["Literature map", "Prototype workloads", "Performance notes"],
+    related: ["long-inverted-repeat-detection", "rare-disease-prediction"],
+  },
+  {
+    slug: "rna-interaction-energy-distribution",
+    title: "RNA Interaction Energy Distribution",
+    description: "Modeling distributions of RNA interaction energies.",
+    status: "Prototype",
+    tags: ["RNA", "Statistics", "Biophysics"],
+    position: { x: 30, y: 58 },
+    summary:
+      "A computational biology project studying how interaction energies vary across RNA sequence contexts.",
+    problem:
+      "Energy landscapes can be hard to summarize when many candidate interactions are plausible.",
+    motivation:
+      "Distributional views can reveal structure that single best-hit summaries miss.",
+    approach:
+      "Combine sequence sampling, energy evaluation, and statistical summaries of interaction behavior.",
+    results: "Reserved for early plots, methodology, and validation notes.",
+    timeline: ["Sampling setup", "Energy calculations", "Distribution analysis"],
+    related: ["long-inverted-repeat-detection"],
   },
 ];

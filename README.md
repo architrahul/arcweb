@@ -318,8 +318,8 @@ Possible first set of landmarks:
 - RNA Interaction Energy Distribution
 - Game Boy Emulator
 - Medical Device Startup
-- Coroutine Implementations
-- Verilog Pipelining
+- Operating Systems Implementation
+- Rare Disease Prediction From Clinical Notes
 - Computational Biology Research
 
 These should be placed intentionally. Projects with conceptual overlap should be spatially closer.

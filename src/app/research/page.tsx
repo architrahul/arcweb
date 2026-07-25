@@ -46,10 +46,10 @@ const stages = [
         During the summer after my first year, I joined the Pejaver Lab at the
         Icahn School of Medicine at Mount Sinai, working with Mohammed Syed
         under PI Vikas Pejaver. The project focused on rare-disease prediction
-        from clinical notes, and the code is here:{" "}
-        <ResearchExternalLink href="https://github.com/architrahul/rare-disease-prediction">
-          rare-disease-prediction
-        </ResearchExternalLink>
+        from clinical notes. I wrote more about the project here:{" "}
+        <ResearchLink href="/projects/rare-disease-prediction">
+          rare-disease prediction from clinical notes
+        </ResearchLink>
         .
       </>,
       "I worked on a BERT-based pipeline for identifying rare-disease patients from unstructured clinical text, but the part that interested me most was interpretability. In a clinical setting, a prediction is not very useful if it cannot point to the evidence it is using. A model that flags a patient but cannot explain what in the note drove that flag is hard to trust and hard to debug.",
